@@ -105,6 +105,85 @@
             />
           </div>
         </div>
+        <div class="col-lg-12 col-md-12 mt-2">
+          <div class="form-group">
+            <label for="email">{{ "EMAIL_LABEL" | translate }}</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="{{ 'EMAIL_PLACEHOLDER' | translate }}"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 mt-2">
+          <div class="form-group">
+            <label for="company">{{ "COMPANY_NAME_LABEL" | translate }}</label>
+            <input
+              type="text"
+              id="company"
+              placeholder="{{ 'COMPANY_NAME_PLACEHOLDER' | translate }}"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 mt-2">
+          <div class="form-group">
+            <label for="businessType">{{
+              "BUSINESS_TYPE_LABEL" | translate
+            }}</label>
+            <input
+              type="text"
+              id="businessType"
+              placeholder="{{ 'BUSINESS_TYPE_PLACEHOLDER' | translate }}"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 mt-2">
+          <div class="form-group">
+            <label for="password">{{ "PASSWORD_LABEL" | translate }}</label>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              placeholder="{{ 'PASSWORD_PLACEHOLDER' | translate }}"
+            />
+            <i
+              class="pi toggle-password-icon"
+              [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'"
+              (click)="togglePassword()"
+              [ngStyle]="{
+                left: currentLanguage === 'ar' ? '17px' : '',
+                right: currentLanguage === 'en' ? '17px' : '',
+              }"
+            ></i>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 mt-2">
+          <div class="form-group">
+            <label for="repassword">{{ "REPASSWORD_LABEL" | translate }}</label>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              placeholder="{{ 'PASSWORD_PLACEHOLDER' | translate }}"
+            />
+            <i
+              class="pi toggle-password-icon"
+              [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'"
+              (click)="togglePassword()"
+              [ngStyle]="{
+                left: currentLanguage === 'ar' ? '17px' : '',
+                right: currentLanguage === 'en' ? '17px' : '',
+              }"
+            ></i>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 mt-3">
+          <button type="button" class="register-btn">
+            {{ "REGISTER_BUTTON" | translate }}
+          </button>
+          <p class="account-exists-text">
+            {{ "ACCOUNT_EXISTS" | translate }}
+            <a routerLink="/auth/login">{{ "LOGIN_HERE" | translate }}</a>
+          </p>
+        </div>
       </div>
     </form>
   </div>

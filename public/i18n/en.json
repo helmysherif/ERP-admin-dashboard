@@ -8,5 +8,17 @@
   "PHONE_NUMBER_LABEL": "Phone Number",
   "PHONE_NUMBER_PLACEHOLDER": "+201234567890",
   "SELECT_COUNTRY_PLACEHOLDER": "Search for a Country...",
-  "NO_COUNTRIES_FOUND": "No countries found."
+  "NO_COUNTRIES_FOUND": "No countries found.",
+  "EMAIL_LABEL": "Email Address",
+  "EMAIL_PLACEHOLDER": "example@example.com",
+  "COMPANY_NAME_LABEL": "Company/Business Name",
+  "COMPANY_NAME_PLACEHOLDER": "e.g Technical Solutions Co.",
+  "BUSINESS_TYPE_LABEL": "Business Type",
+  "BUSINESS_TYPE_PLACEHOLDER": "Select business type",
+  "PASSWORD_LABEL": "Password",
+  "PASSWORD_PLACEHOLDER": "Min 8 characters",
+  "REPASSWORD_LABEL": "Confirm Password",
+  "REGISTER_BUTTON": "Create Account",
+  "ACCOUNT_EXISTS": "Already have an account? ",
+  "LOGIN_HERE": "Login here"
 }

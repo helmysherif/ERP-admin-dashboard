@@ -25,6 +25,7 @@
     }
     form {
       .form-group {
+        position: relative;
         label {
           font-size: 12px;
           font-weight: 700;
@@ -41,7 +42,7 @@
           color: var(--register-form-input-color);
           border: 1px solid var(--register-form-input-border-color);
           width: 100%;
-          padding-inline-start: 15px;
+          padding: 0 15px;
           &::placeholder {
             font-size: 14px;
           }
@@ -98,6 +99,7 @@
         }
         .options-container {
           position: absolute;
+          z-index: 9999;
           background: var(--register-form-phone-code-dropdown-bg);
           overflow: hidden;
           // padding: 15px;
@@ -159,6 +161,28 @@
             }
           }
         }
+      }
+      .toggle-password-icon {
+        position: absolute;
+        top: 58%;
+        cursor: pointer;
+        color: var(--register-form-phone-code-label-color);
+      }
+      .register-btn {
+        width: 100%;
+        background: rgb(37, 106, 244);
+        color: rgb(255, 255, 255);
+        border: 0;
+        border-radius: 10px;
+        height: 40px;
+        cursor: pointer;
+      }
+      .account-exists-text {
+        margin: 0;
+        text-align: center;
+        padding: 15px 0 0;
+        color: var(--register-form-label-color);
+        font-size: 14px;
       }
     }
   }

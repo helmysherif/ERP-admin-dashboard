@@ -8,5 +8,17 @@
     "PHONE_NUMBER_LABEL": "رقم الهاتف",
     "PHONE_NUMBER_PLACEHOLDER": "+201234567890",
     "SELECT_COUNTRY_PLACEHOLDER": "ابحث عن دولة...",
-    "NO_COUNTRIES_FOUND": "لم يتم العثور على دول."
+    "NO_COUNTRIES_FOUND": "لم يتم العثور على دول.",
+    "EMAIL_LABEL": "البريد الإلكتروني",
+    "EMAIL_PLACEHOLDER": "example@example.com",
+    "COMPANY_NAME_LABEL": "اسم الشركة/النشاط",
+    "COMPANY_NAME_PLACEHOLDER": "مثال: شركة الحلول التقنية",
+    "BUSINESS_TYPE_LABEL": "نوع النشاط",
+    "BUSINESS_TYPE_PLACEHOLDER": "اختر نوع النشاط",
+    "PASSWORD_LABEL": "كلمة المرور",
+    "PASSWORD_PLACEHOLDER": "8 أحرف على الأقل",
+    "REPASSWORD_LABEL": "تأكيد كلمة المرور",
+    "REGISTER_BUTTON": "إنشاء الحساب",
+    "ACCOUNT_EXISTS": "هل لديك حساب بالفعل؟ ",
+    "LOGIN_HERE": "تسجيل الدخول "
 }

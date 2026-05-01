@@ -10,9 +10,16 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { TranslationService } from '../../../components/services/translation.service';
 import { SelectModule } from 'primeng/select';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
-  imports: [CommonModule, TranslatePipe, SelectModule, FormsModule],
+  imports: [
+    CommonModule,
+    TranslatePipe,
+    SelectModule,
+    FormsModule,
+    RouterModule,
+  ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
 })
@@ -22,6 +29,7 @@ export class SignUpComponent {
   selectedOptionIndex: number = 0;
   currentLanguage: 'ar' | 'en' = 'ar';
   showDropdown: boolean = false;
+  showPassword: boolean = false;
   @ViewChild('optionsContainer') optionsContainer!: ElementRef;
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
@@ -132,13 +140,10 @@ export class SignUpComponent {
   filterInOptions(event: Event) {
     const input = event.target as HTMLInputElement;
     const searchTerm = input.value.toLowerCase().trim();
-
     if (!searchTerm) {
       this.filteredCountriesList = [...this.countries];
       return;
     }
-
-    // Always filter from the original 'countries' array
     this.filteredCountriesList = this.countries.filter((country) => {
       const nameToSearch =
         this.currentLanguage === 'ar'
@@ -147,5 +152,8 @@ export class SignUpComponent {
 
       return nameToSearch.toLowerCase().includes(searchTerm);
     });
+  }
+  togglePassword() {
+    this.showPassword = !this.showPassword;
   }
 }
