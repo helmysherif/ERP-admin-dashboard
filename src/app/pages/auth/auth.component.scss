@@ -1,0 +1,49 @@
+.auth {
+  min-height: 100vh;
+  padding: 20px;
+  transition: 0.4s;
+  .content-wrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+  &-change-theme-translation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1.55;
+    .button {
+      background-color: var(--change-theme-btn-bg);
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--change-theme-btn-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.4s;
+    }
+    .change-theme-btn {
+      i {
+        color: var(--change-theme-btn-icon-color);
+        transition: 0.4s;
+      }
+    }
+    .change-language-btn {
+      color: rgb(37, 106, 244);
+      background: rgba(37, 106, 244, 0.125);
+      border: 1px solid rgba(37, 106, 244, 0.19);
+      .ar-text {
+        position: relative;
+        top: -2.5px;
+      }
+    }
+  }
+  &-logo {
+    flex: 2;
+  }
+  .register-form-wrapper {
+    text-align: center;
+    margin-top: 15px;
+  }
+}

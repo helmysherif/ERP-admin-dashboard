@@ -1,0 +1,93 @@
+<section class="register">
+  <p class="register-title">
+    {{ "CREATE_ACCOUNT_TITLE" | translate }}
+  </p>
+  <div class="register-form">
+    <p class="register-form-title">
+      {{ "CREATE_ACCOUNT_SUBTITLE" | translate }}
+    </p>
+    <form>
+      <div class="row">
+        <div class="col-lg-6 col-md-12" style="padding-inline-end: 0">
+          <div class="form-group">
+            <label for="name">{{ "FULL_NAME_LABEL" | translate }}</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="{{ 'FULL_NAME_PLACEHOLDER' | translate }}"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="form-group">
+            <label for="username">{{ "USERNAME_LABEL" | translate }}</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="{{ 'USERNAME_PLACEHOLDER' | translate }}"
+            />
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 mt-2" style="padding-inline-end: 0">
+          <div class="form-group">
+            <label for="phone">{{ "PHONE_NUMBER_LABEL" | translate }}</label>
+            <div class="phone-codes-dropdown">
+              <div
+                class="selected-option-card"
+                (click)="showCodeDropdown($event)"
+              >
+                <div class="content">
+                  <img
+                    [src]="selectedCountry.flagUrl"
+                    alt="{{ selectedCountry.EnglishName }}"
+                    class="flag-icon"
+                    width="25"
+                  />
+                  <span>{{
+                    currentLanguage === "ar"
+                      ? selectedCountry.ArabicName
+                      : selectedCountry.EnglishName
+                  }}</span>
+                </div>
+                <i class="pi pi-chevron-down"></i>
+              </div>
+              <div
+                class="options-container"
+                #optionsContainer
+                [class.show]="showDropdown"
+              >
+                @for (code of countries; track $index) {
+                  <div class="option-card">
+                    <div class="content">
+                      <img
+                        [src]="code.flagUrl"
+                        alt="{{ code.EnglishName }}"
+                        class="flag-icon"
+                        width="25"
+                      />
+                      <span>{{
+                        currentLanguage === "ar"
+                          ? code.ArabicName
+                          : code.EnglishName
+                      }}</span>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12 mt-2">
+          <div class="form-group">
+            <label for="phone" style="display: block; height: 22.5px"></label>
+            <input
+              type="text"
+              id="phone"
+              placeholder="{{ 'PHONE_NUMBER_PLACEHOLDER' | translate }}"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

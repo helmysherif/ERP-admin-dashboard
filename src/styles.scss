@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  background-color: var(--bg-color) !important;
+  font-family: "Poppins", "Cairo", sans-serif !important;
+  color: #000000 !important;
+  margin: 0;
+  padding: 0;
+  transition: 0.4s;
+}
+body.light {
+  --bg-color: #f0f4ff;
+  --change-theme-btn-bg: #ffffff;
+  --change-theme-btn-border: #d0daf0;
+  --change-theme-btn-icon-color: #475569;
+  --register-form-bg: #fff;
+  --register-form-border: #d0daf0;
+  --register-form-main-title-color: #475569;
+  --register-form-main-sub-title-color: #1e293b;
+  --register-form-label-color: #475569;
+  --register-form-input-color: #1e293b;
+  --register-form-input-border-color: #d0daf0;
+  --register-form-phone-code-label-color: #475569;
+  --register-form-phone-code-dropdown-bg: #ffffff;
+}
+body.dark {
+  --bg-color: #070d1a;
+  --change-theme-btn-bg: #0e172a;
+  --change-theme-btn-border: rgba(255, 255, 255, 0.15);
+  --change-theme-btn-icon-color: #94a3b8;
+  --register-form-bg: #0f172ab3;
+  --register-form-border: #ffffff14;
+  --register-form-main-title-color: #cbd5e1;
+  --register-form-main-sub-title-color: #ffffff;
+  --register-form-label-color: #94a3b8;
+  --register-form-input-color: #f8fafc;
+  --register-form-input-border-color: #ffffff1f;
+  --register-form-phone-code-label-color: #94a3b8;
+  --register-form-phone-code-dropdown-bg: #0f172ab3;
+}

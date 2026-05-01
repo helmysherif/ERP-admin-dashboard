@@ -1,0 +1,87 @@
+.register {
+  &-title {
+    color: var(--register-form-main-title-color);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.4s;
+  }
+  &-form {
+    background-color: var(--register-form-bg);
+    padding: 32px;
+    border: 1px solid var(--register-form-border);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px #256af41a;
+    max-width: 480px;
+    margin: auto;
+    text-align: start;
+    transition: 0.4s;
+    &-title {
+      color: var(--register-form-main-sub-title-color);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      transition: 0.4s;
+      margin-bottom: 10px;
+    }
+    form {
+      .form-group {
+        label {
+          font-size: 12px;
+          font-weight: 700;
+          display: inline-block;
+          margin-bottom: 5px;
+          color: var(--register-form-label-color);
+        }
+        input {
+          background-color: transparent;
+          height: 50px;
+          border-radius: 10px;
+          outline: 0;
+          box-shadow: none;
+          color: var(--register-form-input-color);
+          border: 1px solid var(--register-form-input-border-color);
+          width: 100%;
+          padding-inline-start: 15px;
+          &::placeholder {
+            font-size: 14px;
+          }
+        }
+      }
+      .phone-codes-dropdown {
+        position: relative;
+        .selected-option-card {
+          height: 50px;
+          color: var(--register-form-input-color);
+          border: 1px solid var(--register-form-input-border-color);
+          width: 100%;
+          padding: 0 15px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          .content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+        }
+        .options-container {
+          position: absolute;
+          background: #fff;
+          padding: 15px;
+          border: 1px solid var(--register-form-input-border-color);
+          border-radius: 10px;
+          width: 200px;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.3s;
+          &.show {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}

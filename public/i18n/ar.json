@@ -1,0 +1,11 @@
+{
+    "CREATE_ACCOUNT_TITLE": "إنشاء حساب جديد",
+    "CREATE_ACCOUNT_SUBTITLE": "إنشاء الحساب",
+    "FULL_NAME_LABEL": "الاسم الكامل",
+    "FULL_NAME_PLACEHOLDER": "محمد أحمد",
+    "USERNAME_LABEL": "اسم المستخدم",
+    "USERNAME_PLACEHOLDER": "mohamed123",
+    "PHONE_NUMBER_LABEL": "رقم الهاتف",
+    "PHONE_NUMBER_PLACEHOLDER": "+201234567890",
+    "SELECT_COUNTRY_PLACEHOLDER": "ابحث عن دولة..."
+}

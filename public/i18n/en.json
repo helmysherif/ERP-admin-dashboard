@@ -1,0 +1,11 @@
+{
+  "CREATE_ACCOUNT_TITLE": "Create New Account",
+  "CREATE_ACCOUNT_SUBTITLE": "Create The Account",
+  "FULL_NAME_LABEL": "Full Name",
+  "FULL_NAME_PLACEHOLDER": "Mohamed Ahmed",
+  "USERNAME_LABEL": "Username",
+  "USERNAME_PLACEHOLDER": "mohamed123",
+  "PHONE_NUMBER_LABEL": "Phone Number",
+  "PHONE_NUMBER_PLACEHOLDER": "+201234567890",
+  "SELECT_COUNTRY_PLACEHOLDER": "Search for a Country..."
+}
