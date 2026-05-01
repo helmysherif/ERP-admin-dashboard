@@ -59,26 +59,104 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          overflow: hidden; /* Prevent content from leaking out */
+          white-space: nowrap;
           cursor: pointer;
           .content {
             display: flex;
             align-items: center;
             gap: 10px;
+            min-width: 0; /* CRITICAL: allows flex items to shrink below their content size */
+            flex: 1;
+            span {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              display: block;
+              width: 100%; /* Force the span to respect the container width */
+            }
+
+            .flag-icon {
+              flex-shrink: 0; /* Prevent the flag from being squished */
+            }
+          }
+
+          .pi-chevron-down {
+            flex-shrink: 0; /* Keep the arrow visible */
+            margin-inline-start: 10px;
+          }
+        }
+        .search-area {
+          border-bottom: 1px solid var(--register-form-input-border-color);
+          // margin-bottom: 15px;
+          text-align: center;
+          input {
+            margin: 15px;
+            width: 88%;
+            height: 40px;
           }
         }
         .options-container {
           position: absolute;
-          background: #fff;
-          padding: 15px;
+          background: var(--register-form-phone-code-dropdown-bg);
+          overflow: hidden;
+          // padding: 15px;
           border: 1px solid var(--register-form-input-border-color);
           border-radius: 10px;
-          width: 200px;
+          width: 250px;
           opacity: 0;
           visibility: hidden;
           transition: 0.3s;
           &.show {
             opacity: 1;
             visibility: visible;
+          }
+          .options {
+            max-height: 200px;
+            overflow-y: auto;
+            // style the scrollbar
+            &::-webkit-scrollbar {
+              width: 6px;
+            }
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: var(--register-form-input-border-color);
+              border-radius: 3px;
+            }
+          }
+          .no-results-msg {
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+            color: var(--register-form-label-color);
+          }
+          .option-card {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.4s;
+            &.selected {
+              background-color: var(--register-form-input-border-color);
+            }
+            &:hover {
+              background-color: var(--register-form-input-border-color);
+            }
+            .content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 100%;
+              p,
+              span {
+                margin: 0;
+                font-size: 14px;
+                color: var(--register-form-input-color);
+              }
+            }
           }
         }
       }

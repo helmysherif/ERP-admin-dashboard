@@ -7,5 +7,6 @@
   "USERNAME_PLACEHOLDER": "mohamed123",
   "PHONE_NUMBER_LABEL": "Phone Number",
   "PHONE_NUMBER_PLACEHOLDER": "+201234567890",
-  "SELECT_COUNTRY_PLACEHOLDER": "Search for a Country..."
+  "SELECT_COUNTRY_PLACEHOLDER": "Search for a Country...",
+  "NO_COUNTRIES_FOUND": "No countries found."
 }

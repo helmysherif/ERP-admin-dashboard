@@ -18,8 +18,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class SignUpComponent {
   currentTheme: 'light' | 'dark' = 'light';
-  private elementRef = inject(ElementRef);
   private translationService = inject(TranslationService);
+  selectedOptionIndex: number = 0;
   currentLanguage: 'ar' | 'en' = 'ar';
   showDropdown: boolean = false;
   @ViewChild('optionsContainer') optionsContainer!: ElementRef;
@@ -92,6 +92,7 @@ export class SignUpComponent {
       flagUrl: 'https://flagcdn.com/w40/fr.png',
     },
   ];
+  filteredCountriesList = [...this.countries];
   selectedCountry!: {
     ArabicName: string;
     EnglishName: string;
@@ -113,5 +114,38 @@ export class SignUpComponent {
   showCodeDropdown(event: Event) {
     event.stopPropagation();
     this.showDropdown = !this.showDropdown;
+  }
+  changeSelectedCountry(
+    country: {
+      ArabicName: string;
+      EnglishName: string;
+      iso: string;
+      dialCode: string;
+      flagUrl: string;
+    },
+    index: number,
+  ) {
+    this.selectedCountry = country;
+    this.showDropdown = false;
+    this.selectedOptionIndex = index;
+  }
+  filterInOptions(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const searchTerm = input.value.toLowerCase().trim();
+
+    if (!searchTerm) {
+      this.filteredCountriesList = [...this.countries];
+      return;
+    }
+
+    // Always filter from the original 'countries' array
+    this.filteredCountriesList = this.countries.filter((country) => {
+      const nameToSearch =
+        this.currentLanguage === 'ar'
+          ? country.ArabicName
+          : country.EnglishName;
+
+      return nameToSearch.toLowerCase().includes(searchTerm);
+    });
   }
 }

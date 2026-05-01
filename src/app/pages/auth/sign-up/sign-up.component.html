@@ -56,23 +56,41 @@
                 #optionsContainer
                 [class.show]="showDropdown"
               >
-                @for (code of countries; track $index) {
-                  <div class="option-card">
-                    <div class="content">
-                      <img
-                        [src]="code.flagUrl"
-                        alt="{{ code.EnglishName }}"
-                        class="flag-icon"
-                        width="25"
-                      />
-                      <span>{{
-                        currentLanguage === "ar"
-                          ? code.ArabicName
-                          : code.EnglishName
-                      }}</span>
+                <div class="search-area">
+                  <input
+                    type="text"
+                    [placeholder]="'SELECT_COUNTRY_PLACEHOLDER' | translate"
+                    (input)="filterInOptions($event)"
+                  />
+                </div>
+                <div class="options">
+                  @for (code of filteredCountriesList; track $index) {
+                    <div
+                      class="option-card"
+                      (click)="changeSelectedCountry(code, $index)"
+                      [class.selected]="$index === selectedOptionIndex"
+                    >
+                      <div class="content">
+                        <img
+                          [src]="code.flagUrl"
+                          alt="{{ code.EnglishName }}"
+                          class="flag-icon"
+                          width="25"
+                        />
+                        <span>{{
+                          currentLanguage === "ar"
+                            ? code.ArabicName
+                            : code.EnglishName
+                        }}</span>
+                        <p>{{ code.dialCode }}</p>
+                      </div>
                     </div>
-                  </div>
-                }
+                  } @empty {
+                    <p class="no-results-msg">
+                      {{ "NO_COUNTRIES_FOUND" | translate }}
+                    </p>
+                  }
+                </div>
               </div>
             </div>
           </div>
