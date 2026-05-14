@@ -1,1 +1,121 @@
-<p>login works!</p>
+<section class="login">
+  <p class="login-title">{{ "WELCOME_BACK" | translate }}</p>
+  <p class="login-subtitle">{{ "SIGN_IN_TO_CONTINUE" | translate }}</p>
+  <form class="login-form" autocomplete="off" [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="username"
+        >{{ "USERNAME_LABEL" | translate }} <span>*</span></label
+      >
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="{{ 'USERNAME_PLACEHOLDER' | translate }}"
+        required
+        autocomplete="off"
+        formControlName="username"
+        [class.invalid-field]="displayError('username') !== ''"
+      />
+      <!-- class="invalid-field" -->
+      <small
+        class="error-msg"
+        [ngStyle]="{
+          left: currentLanguage === 'ar' ? 'auto' : '0',
+          right: currentLanguage === 'ar' ? '0' : 'auto',
+        }"
+        >{{ displayError("username") }}</small
+      >
+    </div>
+    <div class="form-group mb-0">
+      <label for="password"
+        >{{ "PASSWORD_LABEL" | translate }} <span>*</span></label
+      >
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        id="password"
+        name="password"
+        placeholder="{{ 'PASSWORD_PLACEHOLDER' | translate }}"
+        required
+        autocomplete="new-password"
+        formControlName="password"
+        [class.invalid-field]="displayError('password') !== ''"
+      />
+      <i
+        class="pi password-toggle-icon"
+        [ngClass]="{ 'pi-eye': !showPassword, 'pi-eye-slash': showPassword }"
+        (click)="togglePasswordVisibility()"
+        [ngStyle]="{
+          right: currentLanguage === 'ar' ? 'auto' : '10px',
+          left: currentLanguage === 'ar' ? '10px' : 'auto',
+        }"
+      ></i>
+      <!-- class="invalid-field" -->
+      <small
+        class="error-msg"
+        [ngStyle]="{
+          left: currentLanguage === 'ar' ? 'auto' : '0',
+          right: currentLanguage === 'ar' ? '0' : 'auto',
+        }"
+        >{{ displayError("password") }}</small
+      >
+    </div>
+    <div class="form-group remember-me-group">
+      <p-checkbox
+        inputId="rememberMe"
+        name="rememberMe"
+        [binary]="true"
+        styleClass="remember-me-checkbox"
+        formControlName="rememberMe"
+      />
+      <label class="remember-me" for="rememberMe">
+        {{ "REMEMBER_ME_LABEL" | translate }}
+      </label>
+    </div>
+    <!-- [disabled]="signUpForm.invalid" -->
+    <button
+      type="button"
+      class="sign-up-btn"
+      [disabled]="loginForm.invalid"
+      [class.disabled]="loginForm.invalid"
+      (click)="login()"
+    >
+      {{ "SIGN_IN_LABEL" | translate }}
+    </button>
+    <div class="create-account-with-container">
+      <p class="create-account-with-label">
+        {{ "CREATE_ACCOUNT_WITH_LABEL" | translate }}
+      </p>
+    </div>
+    <div class="social-media-links">
+      <a href="#" class="social-media-link link-item facebook">
+        <img
+          src="images/facebook-app-symbol.png"
+          alt="facebook icon"
+          class="image-item"
+        />
+      </a>
+      <a href="#" class="social-media-link link-item google">
+        <img
+          class="image-item google"
+          src="images/google.png"
+          alt="google icon"
+        />
+      </a>
+      <a href="#" class="social-media-link">
+        <img
+          width="40"
+          src="images/github.png"
+          alt="github icon"
+          style="cursor: pointer"
+        />
+      </a>
+      <a href="#" class="social-media-link link-item twitter">
+        <img class="image-item" src="images/twitter.png" alt="twitter icon" />
+      </a>
+    </div>
+    <p class="have-account-text">
+      {{ "DONT_HAVE_ACCOUNT_LABEL" | translate }}
+      <a routerLink="/auth/register">{{ "REGISTER_LABEL" | translate }}</a>
+    </p>
+  </form>
+</section>

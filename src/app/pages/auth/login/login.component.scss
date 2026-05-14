@@ -1,0 +1,199 @@
+.login {
+  &-title {
+    color: var(--auth-welcome-back-text-color) !important;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  &-subtitle {
+    color: #878a99 !important;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  &-form {
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+      @media all and (max-width: 375px) {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--auth-input-label-color);
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 14px;
+        span {
+          color: red;
+        }
+      }
+      .password-toggle-icon {
+        position: absolute;
+        top: 37px;
+        cursor: pointer;
+        color: var(--auth-input-label-color);
+      }
+      input {
+        width: 100%;
+        padding: 7px 15px;
+        border: 1px solid var(--auth-form-input-border-color);
+        border-radius: 4px;
+        background-color: var(--auth-form-input-background-color);
+        color: var(--auth-form-input-text-color);
+        transition: 0.3s;
+        outline: none;
+        box-shadow: none;
+        font-size: 13px;
+        &:focus {
+          border-color: var(--auth-form-input-border-color-focused);
+          outline: none;
+          box-shadow: none;
+        }
+        &.invalid-field {
+          border-color: red;
+        }
+      }
+      .error-msg {
+        color: red;
+        position: absolute;
+        bottom: -19px;
+        font-size: 12px;
+        text-transform: capitalize;
+        @media all and (max-width: 375px) {
+          position: relative;
+          bottom: 0;
+          display: inline-block;
+          line-height: 19px;
+          margin-top: 5px;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+    .terms-and-conditions-text {
+      color: #878a99;
+      font-size: 0.75rem;
+      font-style: italic;
+      margin: 0;
+      margin-top: 20px;
+      display: block;
+      a {
+        color: rgb(64, 81, 137);
+      }
+    }
+    .sign-up-btn {
+      width: 100%;
+      border: 0;
+      display: block;
+      background-color: #0ab39c;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: capitalize;
+      margin-top: 20px;
+      border-radius: 7px;
+      height: 40px;
+      cursor: pointer;
+      &.disabled {
+        background-color: #0ab39c80;
+        cursor: not-allowed;
+      }
+    }
+    .create-account-with-container {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        right: 0;
+        border-top: 1px dashed #e9ebec;
+        top: 10px;
+      }
+    }
+    .create-account-with-label {
+      text-align: center;
+      margin: 20px 0;
+      color: #878a99;
+      font-size: 13px;
+      font-weight: 400;
+      background-color: var(--auth-create-account-link-color);
+      z-index: 99999;
+      position: relative;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 0 12px;
+    }
+    .social-media-links {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      .link-item {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &.facebook {
+          background-color: #405189;
+        }
+        &.google {
+          background-color: #db4437;
+        }
+        &.twitter {
+          background-color: #1da1f2;
+        }
+      }
+      .image-item {
+        width: 20px;
+      }
+    }
+    .have-account-text {
+      text-align: center;
+      margin: 0;
+      position: relative;
+      top: 25px;
+      color: var(--auth-have-an-account-link-color);
+      font-size: 13px;
+      a {
+        color: rgb(64, 81, 137);
+      }
+    }
+  }
+  .remember-me-group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-top: 10px;
+    label {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: -1px;
+    }
+  }
+}
+::ng-deep .remember-me-checkbox {
+  .p-checkbox-box {
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border-color: #ced4da;
+  }
+  &.p-checkbox-checked {
+    .p-checkbox-box {
+      background-color: #405189;
+      border-color: #405189;
+      svg {
+        color: #fff;
+        width: 9px;
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ type Theme = 'light' | 'dark';
   providedIn: 'root',
 })
 export class TranslationService {
-  currentLanguage: BehaviorSubject<Lang> = new BehaviorSubject<Lang>('ar');
+  currentLanguage: BehaviorSubject<Lang> = new BehaviorSubject<Lang>('en');
   currentTheme: BehaviorSubject<Theme> = new BehaviorSubject<Theme>('light');
   private translate = inject(TranslateService);
   private document = inject(DOCUMENT);

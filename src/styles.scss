@@ -10,32 +10,26 @@ body {
   transition: 0.4s;
 }
 body.light {
-  --bg-color: #f0f4ff;
-  --change-theme-btn-bg: #ffffff;
-  --change-theme-btn-border: #d0daf0;
-  --change-theme-btn-icon-color: #475569;
-  --register-form-bg: #fff;
-  --register-form-border: #d0daf0;
-  --register-form-main-title-color: #475569;
-  --register-form-main-sub-title-color: #1e293b;
-  --register-form-label-color: #475569;
-  --register-form-input-color: #1e293b;
-  --register-form-input-border-color: #d0daf0;
-  --register-form-phone-code-label-color: #475569;
-  --register-form-phone-code-dropdown-bg: #ffffff;
+  --auth-bg-color: #ffffff;
+  --auth-slider-text-color: #9ca1b9;
+  --auth-welcome-back-text-color: rgb(64, 81, 137);
+  --auth-input-label-color: #212529;
+  --auth-form-input-background-color: transparent;
+  --auth-form-input-text-color: #212529;
+  --auth-form-input-border-color: #ced4da;
+  --auth-form-input-border-color-focused: #b3b9d0;
+  --auth-create-account-link-color: #ffffff;
+  --auth-have-an-account-link-color: #212529;
 }
 body.dark {
-  --bg-color: #070d1a;
-  --change-theme-btn-bg: #0e172a;
-  --change-theme-btn-border: rgba(255, 255, 255, 0.15);
-  --change-theme-btn-icon-color: #94a3b8;
-  --register-form-bg: #0f172ab3;
-  --register-form-border: #ffffff14;
-  --register-form-main-title-color: #cbd5e1;
-  --register-form-main-sub-title-color: #ffffff;
-  --register-form-label-color: #94a3b8;
-  --register-form-input-color: #f8fafc;
-  --register-form-input-border-color: #ffffff1f;
-  --register-form-phone-code-label-color: #94a3b8;
-  --register-form-phone-code-dropdown-bg: #0f172ab3;
+  --auth-bg-color: #212529;
+  --auth-slider-text-color: #9ca1b9;
+  --auth-welcome-back-text-color: rgb(64, 81, 137);
+  --auth-input-label-color: #ffffff;
+  --auth-form-input-background-color: #262a2f;
+  --auth-form-input-text-color: #ced4da;
+  --auth-form-input-border-color: #2a2f34;
+  --auth-form-input-border-color-focused: #2a3559;
+  --auth-create-account-link-color: #212529;
+  --auth-have-an-account-link-color: #ced4da;
 }

@@ -1,4 +1,8 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
@@ -14,6 +18,7 @@ import {
   provideTranslateLoader,
 } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxSpinnerModule } from 'ngx-spinner';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -38,7 +43,8 @@ export const appConfig: ApplicationConfig = {
         suffix: '.json',
       }),
       fallbackLang: 'en',
-      lang: 'ar',
+      lang: 'en',
     }),
+    importProvidersFrom(NgxSpinnerModule.forRoot()),
   ],
 };

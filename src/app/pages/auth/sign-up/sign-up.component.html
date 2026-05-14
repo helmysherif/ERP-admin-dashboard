@@ -1,190 +1,135 @@
 <section class="register">
-  <p class="register-title">
-    {{ "CREATE_ACCOUNT_TITLE" | translate }}
-  </p>
-  <div class="register-form">
-    <p class="register-form-title">
-      {{ "CREATE_ACCOUNT_SUBTITLE" | translate }}
+  <p class="register-title">{{ "REGISTER_ACCOUNT_TITLE" | translate }}</p>
+  <p class="register-subtitle">{{ "REGISTER_ACCOUNT_SUBTITLE" | translate }}</p>
+  <form class="register-form" autocomplete="off" [formGroup]="signUpForm">
+    <div class="form-group">
+      <label for="email">{{ "EMAIL_LABEL" | translate }} <span>*</span></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="{{ 'EMAIL_PLACEHOLDER' | translate }}"
+        required
+        autocomplete="off"
+        formControlName="email"
+        [class.invalid-field]="displayError('email') !== ''"
+      />
+      <!-- class="invalid-field" -->
+      <small
+        class="error-msg"
+        [ngStyle]="{
+          left: currentLanguage === 'ar' ? 'auto' : '0',
+          right: currentLanguage === 'ar' ? '0' : 'auto',
+        }"
+        >{{ displayError("email") }}</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="username"
+        >{{ "USERNAME_LABEL" | translate }} <span>*</span></label
+      >
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="{{ 'USERNAME_PLACEHOLDER' | translate }}"
+        required
+        autocomplete="off"
+        formControlName="username"
+        [class.invalid-field]="displayError('username') !== ''"
+      />
+      <!-- class="invalid-field" -->
+      <small
+        class="error-msg"
+        [ngStyle]="{
+          left: currentLanguage === 'ar' ? 'auto' : '0',
+          right: currentLanguage === 'ar' ? '0' : 'auto',
+        }"
+        >{{ displayError("username") }}</small
+      >
+    </div>
+    <div class="form-group mb-0">
+      <label for="password"
+        >{{ "PASSWORD_LABEL" | translate }} <span>*</span></label
+      >
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        id="password"
+        name="password"
+        placeholder="{{ 'PASSWORD_PLACEHOLDER' | translate }}"
+        required
+        autocomplete="new-password"
+        formControlName="password"
+        [class.invalid-field]="displayError('password') !== ''"
+      />
+      <i
+        class="pi password-toggle-icon"
+        [ngClass]="{ 'pi-eye': !showPassword, 'pi-eye-slash': showPassword }"
+        (click)="togglePasswordVisibility()"
+        [ngStyle]="{
+          right: currentLanguage === 'ar' ? 'auto' : '10px',
+          left: currentLanguage === 'ar' ? '10px' : 'auto',
+        }"
+      ></i>
+      <!-- class="invalid-field" -->
+      <small
+        class="error-msg"
+        [ngStyle]="{
+          left: currentLanguage === 'ar' ? 'auto' : '0',
+          right: currentLanguage === 'ar' ? '0' : 'auto',
+        }"
+        >{{ displayError("password") }}</small
+      >
+    </div>
+    <span class="terms-and-conditions-text">
+      {{ "TERMS_AND_CONDITIONS" | translate }}
+      <a href="/">{{ "TERMS_AND_CONDITIONS_LINK" | translate }}</a>
+    </span>
+    <!-- [disabled]="signUpForm.invalid" -->
+    <button
+      type="button"
+      class="sign-up-btn"
+      [disabled]="signUpForm.invalid"
+      [class.disabled]="signUpForm.invalid"
+      (click)="signup()"
+    >
+      {{ "SIGN_UP" | translate }}
+    </button>
+    <div class="create-account-with-container">
+      <p class="create-account-with-label">
+        {{ "CREATE_ACCOUNT_WITH_LABEL" | translate }}
+      </p>
+    </div>
+    <div class="social-media-links">
+      <a href="#" class="social-media-link link-item facebook">
+        <img
+          src="images/facebook-app-symbol.png"
+          alt="facebook icon"
+          class="image-item"
+        />
+      </a>
+      <a href="#" class="social-media-link link-item google">
+        <img
+          class="image-item google"
+          src="images/google.png"
+          alt="google icon"
+        />
+      </a>
+      <a href="#" class="social-media-link">
+        <img
+          width="40"
+          src="images/github.png"
+          alt="github icon"
+          style="cursor: pointer"
+        />
+      </a>
+      <a href="#" class="social-media-link link-item twitter">
+        <img class="image-item" src="images/twitter.png" alt="twitter icon" />
+      </a>
+    </div>
+    <p class="have-account-text">
+      {{ "HAVE_ACCOUNT_LABEL" | translate }}
+      <a routerLink="/auth/login">{{ "SIGN_IN_LABEL" | translate }}</a>
     </p>
-    <form>
-      <div class="row">
-        <div class="col-lg-6 col-md-12" style="padding-inline-end: 0">
-          <div class="form-group">
-            <label for="name">{{ "FULL_NAME_LABEL" | translate }}</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="{{ 'FULL_NAME_PLACEHOLDER' | translate }}"
-            />
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12">
-          <div class="form-group">
-            <label for="username">{{ "USERNAME_LABEL" | translate }}</label>
-            <input
-              type="text"
-              id="username"
-              placeholder="{{ 'USERNAME_PLACEHOLDER' | translate }}"
-            />
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12 mt-2" style="padding-inline-end: 0">
-          <div class="form-group">
-            <label for="phone">{{ "PHONE_NUMBER_LABEL" | translate }}</label>
-            <div class="phone-codes-dropdown">
-              <div
-                class="selected-option-card"
-                (click)="showCodeDropdown($event)"
-              >
-                <div class="content">
-                  <img
-                    [src]="selectedCountry.flagUrl"
-                    alt="{{ selectedCountry.EnglishName }}"
-                    class="flag-icon"
-                    width="25"
-                  />
-                  <span>{{
-                    currentLanguage === "ar"
-                      ? selectedCountry.ArabicName
-                      : selectedCountry.EnglishName
-                  }}</span>
-                </div>
-                <i class="pi pi-chevron-down"></i>
-              </div>
-              <div
-                class="options-container"
-                #optionsContainer
-                [class.show]="showDropdown"
-              >
-                <div class="search-area">
-                  <input
-                    type="text"
-                    [placeholder]="'SELECT_COUNTRY_PLACEHOLDER' | translate"
-                    (input)="filterInOptions($event)"
-                  />
-                </div>
-                <div class="options">
-                  @for (code of filteredCountriesList; track $index) {
-                    <div
-                      class="option-card"
-                      (click)="changeSelectedCountry(code, $index)"
-                      [class.selected]="$index === selectedOptionIndex"
-                    >
-                      <div class="content">
-                        <img
-                          [src]="code.flagUrl"
-                          alt="{{ code.EnglishName }}"
-                          class="flag-icon"
-                          width="25"
-                        />
-                        <span>{{
-                          currentLanguage === "ar"
-                            ? code.ArabicName
-                            : code.EnglishName
-                        }}</span>
-                        <p>{{ code.dialCode }}</p>
-                      </div>
-                    </div>
-                  } @empty {
-                    <p class="no-results-msg">
-                      {{ "NO_COUNTRIES_FOUND" | translate }}
-                    </p>
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8 col-md-12 mt-2">
-          <div class="form-group">
-            <label for="phone" style="display: block; height: 22.5px"></label>
-            <input
-              type="text"
-              id="phone"
-              placeholder="{{ 'PHONE_NUMBER_PLACEHOLDER' | translate }}"
-            />
-          </div>
-        </div>
-        <div class="col-lg-12 col-md-12 mt-2">
-          <div class="form-group">
-            <label for="email">{{ "EMAIL_LABEL" | translate }}</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="{{ 'EMAIL_PLACEHOLDER' | translate }}"
-            />
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12 mt-2">
-          <div class="form-group">
-            <label for="company">{{ "COMPANY_NAME_LABEL" | translate }}</label>
-            <input
-              type="text"
-              id="company"
-              placeholder="{{ 'COMPANY_NAME_PLACEHOLDER' | translate }}"
-            />
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12 mt-2">
-          <div class="form-group">
-            <label for="businessType">{{
-              "BUSINESS_TYPE_LABEL" | translate
-            }}</label>
-            <input
-              type="text"
-              id="businessType"
-              placeholder="{{ 'BUSINESS_TYPE_PLACEHOLDER' | translate }}"
-            />
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12 mt-2">
-          <div class="form-group">
-            <label for="password">{{ "PASSWORD_LABEL" | translate }}</label>
-            <input
-              [type]="showPassword ? 'text' : 'password'"
-              id="password"
-              placeholder="{{ 'PASSWORD_PLACEHOLDER' | translate }}"
-            />
-            <i
-              class="pi toggle-password-icon"
-              [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'"
-              (click)="togglePassword()"
-              [ngStyle]="{
-                left: currentLanguage === 'ar' ? '17px' : '',
-                right: currentLanguage === 'en' ? '17px' : '',
-              }"
-            ></i>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12 mt-2">
-          <div class="form-group">
-            <label for="repassword">{{ "REPASSWORD_LABEL" | translate }}</label>
-            <input
-              [type]="showPassword ? 'text' : 'password'"
-              id="password"
-              placeholder="{{ 'PASSWORD_PLACEHOLDER' | translate }}"
-            />
-            <i
-              class="pi toggle-password-icon"
-              [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'"
-              (click)="togglePassword()"
-              [ngStyle]="{
-                left: currentLanguage === 'ar' ? '17px' : '',
-                right: currentLanguage === 'en' ? '17px' : '',
-              }"
-            ></i>
-          </div>
-        </div>
-        <div class="col-lg-12 col-md-12 mt-3">
-          <button type="button" class="register-btn">
-            {{ "REGISTER_BUTTON" | translate }}
-          </button>
-          <p class="account-exists-text">
-            {{ "ACCOUNT_EXISTS" | translate }}
-            <a routerLink="/auth/login">{{ "LOGIN_HERE" | translate }}</a>
-          </p>
-        </div>
-      </div>
-    </form>
-  </div>
+  </form>
 </section>

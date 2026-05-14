@@ -1,6 +1,104 @@
 <section class="auth">
+  <div class="overlay-div">
+    <img
+      src="images/layout-img.png"
+      alt="layout-img"
+      class="layout-img"
+      width="100%"
+    />
+  </div>
   <div class="content-wrapper">
-    <div class="auth-change-theme-translation">
+    <div class="left-side" [class.arabic-left-side]="currentLanguage === 'ar'">
+      <div class="left-side-overlay">
+        <!-- <div class="overlay2"></div> -->
+        <img
+          src="images/auth-img.jpg"
+          alt="auth-img"
+          class="auth-img"
+          width="100%"
+          height="100%"
+        />
+      </div>
+      <div class="content">
+        <a href="/" style="width: fit-content">
+          <img
+            src="images/logo-light.png"
+            alt="logo-light"
+            class="light-logo"
+            width="120"
+          />
+        </a>
+        <div class="bottom-content">
+          <div class="quote-img mb-4">
+            <img src="images/quote.png" alt="quote" width="70" />
+          </div>
+          <div class="carousel-container">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-bs-ride="carousel"
+              style="height: 100px"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                @for (text of authSliderTexts; track $index) {
+                  <div class="carousel-item" [class.active]="$first">
+                    <p>
+                      {{
+                        currentLanguage === "ar"
+                          ? text.arabicTitle
+                          : text.englishTitle
+                      }}
+                    </p>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="right-side"
+      [class.arabic-right-side]="currentLanguage === 'ar'"
+    >
+      <router-outlet />
+    </div>
+  </div>
+</section>
+<!-- <div class="button change-theme-btn" (click)="changeTheming()">
+  <i class="pi" [ngClass]="currentTheme === 'light' ? 'pi-moon' : 'pi-sun'"></i>
+</div>
+<div
+  class="button change-language-btn"
+  (click)="switchLanguage(currentLanguage === 'en' ? 'ar' : 'en')"
+>
+  <span [class.ar-text]="currentLanguage === 'en'">{{
+    currentLanguage === "ar" ? "EN" : "ع"
+  }}</span>
+</div> -->
+<!-- <div class="auth-change-theme-translation">
       <div class="button change-theme-btn" (click)="changeTheming()">
         <i
           class="pi"
@@ -27,9 +125,4 @@
         alt="auth logo"
         class="light-logo"
       />
-    </div>
-  </div>
-  <div class="register-form-wrapper">
-    <router-outlet />
-  </div>
-</section>
+    </div> -->

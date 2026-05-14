@@ -1,188 +1,168 @@
 .register {
   &-title {
-    color: var(--register-form-main-title-color);
+    color: var(--auth-welcome-back-text-color) !important;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  &-subtitle {
+    color: #878a99 !important;
     font-size: 14px;
-    font-weight: 600;
-    transition: 0.4s;
+    font-weight: 400;
   }
   &-form {
-    background-color: var(--register-form-bg);
-    padding: 32px;
-    border: 1px solid var(--register-form-border);
-    border-radius: 24px;
-    box-shadow: 0 10px 40px #256af41a;
-    max-width: 480px;
-    margin: auto;
-    text-align: start;
-    transition: 0.4s;
-    &-title {
-      color: var(--register-form-main-sub-title-color);
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      transition: 0.4s;
-      margin-bottom: 10px;
-    }
-    form {
-      .form-group {
-        position: relative;
-        label {
-          font-size: 12px;
-          font-weight: 700;
-          display: inline-block;
-          margin-bottom: 5px;
-          color: var(--register-form-label-color);
-        }
-        input {
-          background-color: transparent;
-          height: 50px;
-          border-radius: 10px;
-          outline: 0;
-          box-shadow: none;
-          color: var(--register-form-input-color);
-          border: 1px solid var(--register-form-input-border-color);
-          width: 100%;
-          padding: 0 15px;
-          &::placeholder {
-            font-size: 14px;
-          }
-        }
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+      @media all and (max-width: 375px) {
+        margin-bottom: 20px;
       }
-      .phone-codes-dropdown {
-        position: relative;
-        .selected-option-card {
-          height: 50px;
-          color: var(--register-form-input-color);
-          border: 1px solid var(--register-form-input-border-color);
-          width: 100%;
-          padding: 0 15px;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          overflow: hidden; /* Prevent content from leaking out */
-          white-space: nowrap;
-          cursor: pointer;
-          .content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            min-width: 0; /* CRITICAL: allows flex items to shrink below their content size */
-            flex: 1;
-            span {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              display: block;
-              width: 100%; /* Force the span to respect the container width */
-            }
-
-            .flag-icon {
-              flex-shrink: 0; /* Prevent the flag from being squished */
-            }
-          }
-
-          .pi-chevron-down {
-            flex-shrink: 0; /* Keep the arrow visible */
-            margin-inline-start: 10px;
-          }
-        }
-        .search-area {
-          border-bottom: 1px solid var(--register-form-input-border-color);
-          // margin-bottom: 15px;
-          text-align: center;
-          input {
-            margin: 15px;
-            width: 88%;
-            height: 40px;
-          }
-        }
-        .options-container {
-          position: absolute;
-          z-index: 9999;
-          background: var(--register-form-phone-code-dropdown-bg);
-          overflow: hidden;
-          // padding: 15px;
-          border: 1px solid var(--register-form-input-border-color);
-          border-radius: 10px;
-          width: 250px;
-          opacity: 0;
-          visibility: hidden;
-          transition: 0.3s;
-          &.show {
-            opacity: 1;
-            visibility: visible;
-          }
-          .options {
-            max-height: 200px;
-            overflow-y: auto;
-            // style the scrollbar
-            &::-webkit-scrollbar {
-              width: 6px;
-            }
-            &::-webkit-scrollbar-track {
-              background: transparent;
-            }
-            &::-webkit-scrollbar-thumb {
-              background-color: var(--register-form-input-border-color);
-              border-radius: 3px;
-            }
-          }
-          .no-results-msg {
-            margin: 0;
-            padding: 15px;
-            text-align: center;
-            color: var(--register-form-label-color);
-          }
-          .option-card {
-            padding: 10px 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: 0.4s;
-            &.selected {
-              background-color: var(--register-form-input-border-color);
-            }
-            &:hover {
-              background-color: var(--register-form-input-border-color);
-            }
-            .content {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              width: 100%;
-              p,
-              span {
-                margin: 0;
-                font-size: 14px;
-                color: var(--register-form-input-color);
-              }
-            }
-          }
-        }
-      }
-      .toggle-password-icon {
-        position: absolute;
-        top: 58%;
-        cursor: pointer;
-        color: var(--register-form-phone-code-label-color);
-      }
-      .register-btn {
-        width: 100%;
-        background: rgb(37, 106, 244);
-        color: rgb(255, 255, 255);
-        border: 0;
-        border-radius: 10px;
-        height: 40px;
-        cursor: pointer;
-      }
-      .account-exists-text {
-        margin: 0;
-        text-align: center;
-        padding: 15px 0 0;
-        color: var(--register-form-label-color);
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--auth-input-label-color);
+        text-transform: capitalize;
+        font-weight: 500;
         font-size: 14px;
+        span {
+          color: red;
+        }
+      }
+      .password-toggle-icon {
+        position: absolute;
+        top: 37px;
+        cursor: pointer;
+        color: var(--auth-input-label-color);
+      }
+      input {
+        width: 100%;
+        padding: 7px 15px;
+        border: 1px solid var(--auth-form-input-border-color);
+        border-radius: 4px;
+        background-color: var(--auth-form-input-background-color);
+        color: var(--auth-form-input-text-color);
+        transition: 0.3s;
+        outline: none;
+        box-shadow: none;
+        font-size: 13px;
+        &:focus {
+          border-color: var(--auth-form-input-border-color-focused);
+          outline: none;
+          box-shadow: none;
+        }
+        &.invalid-field {
+          border-color: red;
+        }
+      }
+      .error-msg {
+        color: red;
+        position: absolute;
+        bottom: -19px;
+        font-size: 12px;
+        text-transform: capitalize;
+        @media all and (max-width: 375px) {
+          position: relative;
+          bottom: 0;
+          display: inline-block;
+          line-height: 19px;
+          margin-top: 5px;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+    .terms-and-conditions-text {
+      color: #878a99;
+      font-size: 0.75rem;
+      font-style: italic;
+      margin: 0;
+      margin-top: 20px;
+      display: block;
+      a {
+        color: rgb(64, 81, 137);
+      }
+    }
+    .sign-up-btn {
+      width: 100%;
+      border: 0;
+      display: block;
+      background-color: #0ab39c;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: capitalize;
+      margin-top: 20px;
+      border-radius: 7px;
+      height: 40px;
+      cursor: pointer;
+      &.disabled {
+        background-color: #0ab39c80;
+        cursor: not-allowed;
+      }
+    }
+    .create-account-with-container {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        right: 0;
+        border-top: 1px dashed #e9ebec;
+        top: 10px;
+      }
+    }
+    .create-account-with-label {
+      text-align: center;
+      margin: 20px 0;
+      color: #878a99;
+      font-size: 13px;
+      font-weight: 400;
+      background-color: var(--auth-create-account-link-color);
+      z-index: 99999;
+      position: relative;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 0 12px;
+    }
+    .social-media-links {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      .link-item {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &.facebook {
+          background-color: #405189;
+        }
+        &.google {
+          background-color: #db4437;
+        }
+        &.twitter {
+          background-color: #1da1f2;
+        }
+      }
+      .image-item {
+        width: 20px;
+      }
+    }
+    .have-account-text {
+      text-align: center;
+      margin: 0;
+      position: relative;
+      top: 25px;
+      color: var(--auth-have-an-account-link-color);
+      font-size: 13px;
+      a {
+        color: rgb(64, 81, 137);
       }
     }
   }

@@ -1,49 +1,126 @@
 .auth {
   min-height: 100vh;
-  padding: 20px;
-  transition: 0.4s;
+  background: linear-gradient(-45deg, #405189 50%, #0ab39c);
+  position: relative;
+  overflow: hidden;
+  .overlay-div {
+    // background-image: url(../../../../public/images/layout-img.png);
+    // background-position: center;
+    // background-size: cover;
+    opacity: 1;
+    background-color: transparent;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+  }
   .content-wrapper {
-    display: flex;
-    align-items: flex-start;
-  }
-  &-change-theme-translation {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1.55;
-    .button {
-      background-color: var(--change-theme-btn-bg);
-      cursor: pointer;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      border: 1px solid var(--change-theme-btn-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.4s;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 35px 0;
+    @media all and (max-width: 960px) {
+      display: block;
     }
-    .change-theme-btn {
-      i {
-        color: var(--change-theme-btn-icon-color);
-        transition: 0.4s;
+    @media all and (max-width: 1500px) {
+      max-width: 90%;
+    }
+    .left-side {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      padding: 3rem;
+      overflow: hidden;
+      position: relative;
+      min-height: 600px;
+      &.arabic-left-side {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
-    }
-    .change-language-btn {
-      color: rgb(37, 106, 244);
-      background: rgba(37, 106, 244, 0.125);
-      border: 1px solid rgba(37, 106, 244, 0.19);
-      .ar-text {
+      // background-image: url(../../../../public/images/auth-img.jpg);
+      // background-position: center;
+      // background-size: cover;
+      @media all and (max-width: 960px) {
+        border-radius: 0;
+        min-height: auto;
+      }
+      @media all and (max-width: 440px) {
+        padding: 1rem;
+      }
+
+      .left-side-overlay {
+        // &::after {
+        // content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        top: 0;
+        background: linear-gradient(to right, #364574, #405189);
+        opacity: 0.9;
+        z-index: 1;
+        // }
+      }
+      .content {
+        z-index: 2;
         position: relative;
-        top: -2.5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        top: 0;
+        background: linear-gradient(to right, #364574, #405189);
+        opacity: 0.9;
+        z-index: 1;
+      }
+    }
+    .right-side {
+      background-color: var(--auth-bg-color);
+      z-index: 9;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      padding: 3rem;
+      @media all and (max-width: 400px) {
+        padding: 2rem;
+      }
+      &.arabic-right-side {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      @media all and (max-width: 960px) {
+        border-radius: 0;
       }
     }
   }
-  &-logo {
-    flex: 2;
-  }
-  .register-form-wrapper {
+}
+.carousel-item {
+  p {
+    color: var(--auth-slider-text-color);
+    margin: 0;
     text-align: center;
-    margin-top: 15px;
+    font-style: italic;
+    font-weight: 500;
   }
 }
