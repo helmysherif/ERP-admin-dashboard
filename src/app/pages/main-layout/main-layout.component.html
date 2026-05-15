@@ -1,1 +1,49 @@
-<p>main-layout works!</p>
+<div class="main-layout" [ngClass]="{ 'sidebar-open': isSidebarOpen }">
+  <div class="left-side">
+    <app-sidebar [currentLanguage]="currentLanguage" />
+    <p-drawer
+      [(visible)]="visibleSidebar"
+      header="Drawer"
+      [position]="currentLanguage === 'en' ? 'left' : 'right'"
+      styleClass="sidebar-drawer"
+      [transitionOptions]="'400ms cubic-bezier(0, 0, 0.2, 1)'"
+    >
+      <app-sidebar [currentLanguage]="currentLanguage" />
+    </p-drawer>
+  </div>
+  <div class="right-side">
+    <app-navbar
+      [isSidebarOpen2]="isSidebarOpen"
+      [currentLanguage]="currentLanguage"
+    />
+    <div class="content">
+      content
+      <!-- <div class="button change-theme-btn" (click)="changeTheming()">
+        <i
+          class="pi"
+          [ngClass]="currentTheme === 'light' ? 'pi-moon' : 'pi-sun'"
+        ></i>
+      </div>
+      <div
+        class="button change-language-btn"
+        (click)="switchLanguage(currentLanguage === 'en' ? 'ar' : 'en')"
+      >
+        <span [class.ar-text]="currentLanguage === 'en'">{{
+          currentLanguage === "ar" ? "EN" : "ع"
+        }}</span>
+      </div>
+    </div> -->
+    </div>
+  </div>
+  <!-- <div class="button change-theme-btn" (click)="changeTheming()">
+  <i class="pi" [ngClass]="currentTheme === 'light' ? 'pi-moon' : 'pi-sun'"></i>
+</div>
+<div
+  class="button change-language-btn"
+  (click)="switchLanguage(currentLanguage === 'en' ? 'ar' : 'en')"
+>
+  <span [class.ar-text]="currentLanguage === 'en'">{{
+    currentLanguage === "ar" ? "EN" : "ع"
+  }}</span>
+</div> -->
+</div>

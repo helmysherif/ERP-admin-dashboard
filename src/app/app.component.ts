@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
+import { TranslationService } from './components/services/translation.service';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,14 @@ export class AppComponent {
   private translate = inject(TranslateService);
   private document = inject(DOCUMENT);
   private spinner = inject(NgxSpinnerService);
+  private translationService = inject(TranslationService);
   constructor() {
     this.translate.addLangs(['ar', 'en']);
     this.translate.setFallbackLang('en');
-    this.translate.use('en');
-    this.document.documentElement.dir = 'ltr';
+    this.translationService.initLanguage();
+    // this.translate.use('en');
+    // this.document.documentElement.dir = 'ltr';
+    this.translationService.initTheme();
     this.spinner.hide();
   }
 }

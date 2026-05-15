@@ -18,5 +18,6 @@
     "REGISTER_ACCOUNT_SUBTITLE": "احصل على حساب Velzon المجاني الآن.",
     "REMEMBER_ME_LABEL": "تذكرني",
     "DONT_HAVE_ACCOUNT_LABEL": "ليس لديك حساب؟",
-    "REGISTER_LABEL": "تسجيل"
+    "REGISTER_LABEL": "تسجيل",
+    "SEARCH_PLACEHOLDER": "بحث..."
 }

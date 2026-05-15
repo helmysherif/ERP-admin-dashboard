@@ -1,0 +1,51 @@
+.main-layout {
+  display: grid;
+  grid-template-columns: 250px auto;
+  min-height: 100vh;
+  transition: 0.4s;
+  .left-side {
+    background-color: var(--sidebar-bg-color);
+    position: fixed;
+    min-height: 100vh;
+    width: 250px;
+    transition: 0.4s;
+    @media all and (max-width: 768px) {
+      display: none;
+    }
+  }
+  .right-side {
+    grid-column: 2;
+    .content {
+      padding: 0 20px;
+      // height: 1000px;
+      padding-top: 70px;
+    }
+    @media all and (max-width: 768px) {
+      grid-column: 1;
+    }
+  }
+  &.sidebar-open {
+    grid-template-columns: 70px auto;
+    .left-side {
+      background-color: var(--sidebar-bg-color);
+      position: fixed;
+      width: 70px;
+    }
+  }
+}
+::ng-deep .sidebar-drawer {
+  background-color: var(--sidebar-bg-color) !important;
+  width: 45% !important;
+  @media all and (min-width: 769px) {
+    display: none !important;
+  }
+  @media all and (max-width: 471px) {
+    width: 70% !important;
+  }
+  .p-drawer-header {
+    display: none !important;
+  }
+  .p-drawer-content {
+    padding: 0 !important;
+  }
+}

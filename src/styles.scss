@@ -1,16 +1,18 @@
 @import "primeicons/primeicons.css";
+@import "remixicon/fonts/remixicon.css";
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
-  background-color: var(--bg-color) !important;
-  font-family: "Poppins", "Cairo", sans-serif !important;
+  background-color: var(--auth-bg-color) !important;
+  font-family: "Hanken Grotesk", "Cairo", sans-serif !important;
   color: #000000 !important;
   margin: 0;
   padding: 0;
   transition: 0.4s;
 }
 body.light {
-  --auth-bg-color: #ffffff;
+  --auth-bg-color: #f3f3f9;
   --auth-slider-text-color: #9ca1b9;
   --auth-welcome-back-text-color: rgb(64, 81, 137);
   --auth-input-label-color: #212529;
@@ -20,9 +22,18 @@ body.light {
   --auth-form-input-border-color-focused: #b3b9d0;
   --auth-create-account-link-color: #ffffff;
   --auth-have-an-account-link-color: #212529;
+  --sidebar-bg-color: #405189;
+  --navbar-bg-color: #ffffff;
+  --navbar-border-bottom-color: #e9ebec;
+  --navbar-search-input-bg-color: #f3f3f9;
+  --navbar-search-input-text-color: #495057;
+  --navbar-lang-text-color: #212529;
+  --navbar-lang-text-color-hover: #eff2f7;
+  --navbar-langs-dropdown-bg-color: #ffffff;
+  --navbar-langs-dropdown-border-color: #e9ebec;
 }
 body.dark {
-  --auth-bg-color: #212529;
+  --auth-bg-color: #1a1d21;
   --auth-slider-text-color: #9ca1b9;
   --auth-welcome-back-text-color: rgb(64, 81, 137);
   --auth-input-label-color: #ffffff;
@@ -32,4 +43,13 @@ body.dark {
   --auth-form-input-border-color-focused: #2a3559;
   --auth-create-account-link-color: #212529;
   --auth-have-an-account-link-color: #ced4da;
+  --sidebar-bg-color: #212529;
+  --navbar-bg-color: #292e32;
+  --navbar-border-bottom-color: #292e32;
+  --navbar-search-input-bg-color: #202328;
+  --navbar-search-input-text-color: #ffffff;
+  --navbar-lang-text-color: #adb5bd;
+  --navbar-lang-text-color-hover: #2f343a;
+  --navbar-langs-dropdown-bg-color: #292e33;
+  --navbar-langs-dropdown-border-color: #32383e;
 }

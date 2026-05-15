@@ -1,0 +1,50 @@
+<section class="sidebar" [class.sidebar-close]="isSidebarOpen">
+  <div class="sidebar-logo">
+    <a routerLink="/">
+      @if (isSidebarOpen) {
+        <img src="images/small-logo.png" alt="logo" width="22" />
+      } @else {
+        <img src="images/logo-light.png" alt="logo" width="100" />
+      }
+    </a>
+  </div>
+  <ul class="sidebar-links">
+    @for (item of sidebarLinks; track item.mainTitle) {
+      <li>
+        <p class="links-title">
+          {{
+            currentLanguage() === "en"
+              ? item.mainTitle.englishLabel
+              : item.mainTitle.arabicLabel
+          }}
+        </p>
+        <ul
+          class="sidebar-sub-links"
+          [class.arabic-sub-links]="currentLanguage() === 'ar'"
+        >
+          @for (subItem of item.subLinks; track subItem.englishLabel) {
+            <li
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="subItem.route"
+              [attr.data-title]="
+                currentLanguage() === 'en'
+                  ? subItem.englishLabel
+                  : subItem.arabicLabel
+              "
+            >
+              <div class="text">
+                <i [class]="subItem.icon"></i>
+                <span>{{
+                  currentLanguage() === "en"
+                    ? subItem.englishLabel
+                    : subItem.arabicLabel
+                }}</span>
+              </div>
+            </li>
+          }
+        </ul>
+      </li>
+    }
+  </ul>
+</section>

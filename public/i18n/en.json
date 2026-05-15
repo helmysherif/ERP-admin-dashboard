@@ -18,5 +18,6 @@
   "REGISTER_ACCOUNT_SUBTITLE" : "Get your free Velzon account now.",
   "REMEMBER_ME_LABEL": "Remember me",
   "DONT_HAVE_ACCOUNT_LABEL": "Don't have an account?",
-  "REGISTER_LABEL": "Register"
+  "REGISTER_LABEL": "Register",
+  "SEARCH_PLACEHOLDER": "Search..."
 }

@@ -15,10 +15,10 @@ export class TranslationService {
   private platformId = inject(PLATFORM_ID);
   private isBrowser = isPlatformBrowser(this.platformId);
   constructor() {
-    this.initLanguage();
-    this.initTheme();
+    // this.initLanguage();
+    // this.initTheme();
   }
-  private initLanguage() {
+  initLanguage() {
     if (!this.isBrowser) return;
     const savedLang = (localStorage.getItem('lang') as Lang) || 'en';
     this.setLanguage(savedLang);
@@ -36,7 +36,7 @@ export class TranslationService {
     this.currentLanguage.next(lang);
     this.setLanguage(lang);
   }
-  private initTheme() {
+  initTheme() {
     if (!this.isBrowser) return;
     const savedTheme = (localStorage.getItem('theme') as Theme) || 'light';
     this.setTheme(savedTheme);

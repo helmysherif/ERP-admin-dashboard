@@ -1,0 +1,273 @@
+.navbar {
+  padding: 0 20px;
+  position: fixed;
+  width: calc(100% - 250px);
+  background-color: var(--navbar-bg-color);
+  z-index: 1000;
+  height: 70px;
+  border-bottom: 1px solid var(--navbar-border-bottom-color);
+  transition: 0.4s;
+  @media all and (max-width: 768px) {
+    width: 100%;
+  }
+  &.open {
+    width: calc(100% - 70px);
+  }
+  .toggle-sidebar {
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: relative;
+    top: 6px;
+    @media all and (max-width: 768px) {
+      display: none;
+    }
+    .hamburger-icon {
+      width: 25px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      transition: 0.3s;
+      span {
+        background-color: #878a99;
+        position: absolute;
+        border-radius: 2px;
+        height: 2px;
+        display: block;
+        left: 0;
+        &:nth-child(1) {
+          top: 0;
+          width: 80%;
+        }
+        &:nth-child(2) {
+          top: 6px;
+          width: 100%;
+        }
+        &:nth-child(3) {
+          top: 12px;
+          width: 80%;
+        }
+      }
+      &.open {
+        transform: rotate(-90deg);
+        position: relative;
+        top: -4px;
+        span {
+          &:nth-child(1) {
+            left: 1px;
+            top: 5px;
+            width: 20px;
+            transform: rotate(90deg);
+            transition-delay: 150ms;
+          }
+          &:nth-child(2) {
+            left: 3px;
+            top: 13px;
+            width: 10px;
+            transform: rotate(45deg);
+            transition-delay: 50ms;
+          }
+          &:nth-child(3) {
+            left: 9px;
+            top: 13px;
+            width: 10px;
+            transform: rotate(-45deg);
+            transition-delay: 0.1s;
+          }
+        }
+      }
+    }
+  }
+  .responsive-toggle-sidebar {
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: relative;
+    @media all and (min-width: 769px) {
+      display: none;
+    }
+    .hamburger-icon {
+      width: 25px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      transition: 0.3s;
+      span {
+        background-color: #878a99;
+        position: absolute;
+        border-radius: 2px;
+        height: 2px;
+        display: block;
+        left: 0;
+        &:nth-child(1) {
+          top: 0;
+          width: 80%;
+        }
+        &:nth-child(2) {
+          top: 6px;
+          width: 100%;
+        }
+        &:nth-child(3) {
+          top: 12px;
+          width: 80%;
+        }
+      }
+      &.open {
+        transform: rotate(-90deg);
+        span {
+          &:nth-child(1) {
+            left: 1px;
+            top: 5px;
+            width: 20px;
+            transform: rotate(90deg);
+            transition-delay: 150ms;
+          }
+          &:nth-child(2) {
+            left: 3px;
+            top: 13px;
+            width: 10px;
+            transform: rotate(45deg);
+            transition-delay: 50ms;
+          }
+          &:nth-child(3) {
+            left: 9px;
+            top: 13px;
+            width: 10px;
+            transform: rotate(-45deg);
+            transition-delay: 0.1s;
+          }
+        }
+      }
+    }
+  }
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .search-input {
+      position: relative;
+      input {
+        background-color: var(--navbar-search-input-bg-color);
+        color: var(--navbar-search-input-text-color);
+        border: 0;
+        box-shadow: none;
+        outline: 0;
+        height: 38px;
+        padding-left: 40px;
+        padding-right: 30px;
+        border-radius: 6px;
+        transition: 0.4s;
+      }
+      i {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #878a99;
+      }
+    }
+  }
+  .right {
+    display: flex;
+    align-items: center;
+  }
+  .languages-dropdown {
+    position: relative;
+    .selected-flag {
+      cursor: pointer;
+      height: 42px;
+      width: 42px;
+      display: grid;
+      place-items: center;
+      transition: 0.4s;
+      border-radius: 50%;
+      &:hover {
+        background-color: rgba(53, 119, 241, 0.12);
+      }
+    }
+    .languages-selection {
+      position: absolute;
+      inset: 0px 0px auto auto;
+      margin: 0px;
+      box-shadow: 0 5px 10px rgba(30, 32, 37, 0.12);
+      width: 150px;
+      right: 0;
+      top: 50px;
+      background: var(--navbar-langs-dropdown-bg-color);
+      border: 1px solid var(--navbar-langs-dropdown-border-color);
+      border-radius: 5px;
+      overflow: hidden;
+
+      /* --- Animation State Initial Configuration --- */
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s;
+      z-index: 1001; /* Ensure it stays above other elements */
+
+      &.arabic-dir {
+        right: auto;
+        left: 0;
+      }
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .lang {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover,
+        &.active {
+          background-color: var(--navbar-lang-text-color-hover);
+        }
+
+        span {
+          color: var(--navbar-lang-text-color);
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  .change-theme-section {
+    height: 42px;
+    width: 42px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: 0.4s;
+    &:hover {
+      background-color: rgba(53, 119, 241, 0.12);
+    }
+    i {
+      color: #878a99;
+    }
+  }
+  .cart-section {
+    height: 42px;
+    width: 42px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: 0.4s;
+    &:hover {
+      background-color: rgba(53, 119, 241, 0.12);
+    }
+    i {
+      color: #878a99;
+      font-size: 20px;
+    }
+  }
+}
