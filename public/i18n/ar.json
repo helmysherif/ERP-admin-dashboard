@@ -19,5 +19,7 @@
     "REMEMBER_ME_LABEL": "تذكرني",
     "DONT_HAVE_ACCOUNT_LABEL": "ليس لديك حساب؟",
     "REGISTER_LABEL": "تسجيل",
-    "SEARCH_PLACEHOLDER": "بحث..."
+    "SEARCH_PLACEHOLDER": "بحث...",
+    "MY_CART_LABEL": "سلتي",
+    "CART_ITEMS_LABEL": "العناصر"
 }

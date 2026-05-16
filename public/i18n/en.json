@@ -19,5 +19,7 @@
   "REMEMBER_ME_LABEL": "Remember me",
   "DONT_HAVE_ACCOUNT_LABEL": "Don't have an account?",
   "REGISTER_LABEL": "Register",
-  "SEARCH_PLACEHOLDER": "Search..."
+  "SEARCH_PLACEHOLDER": "Search...",
+  "MY_CART_LABEL": "My Cart",
+  "CART_ITEMS_LABEL": "Items"
 }

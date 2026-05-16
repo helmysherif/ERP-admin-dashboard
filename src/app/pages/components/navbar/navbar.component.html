@@ -20,6 +20,30 @@
     </div>
   </div>
   <div class="right">
+    <div class="responsive-search-input" #searchDropdown>
+      <div class="search-icon" (click)="toggleSearchDropdown()">
+        <i class="pi pi-search"></i>
+      </div>
+      <div
+        class="search-dropdown"
+        [class.arabic-dir]="currentLang.englishName === 'Arabic'"
+        [class.active]="isSearchDropdownOpen()"
+      >
+        <div class="search-area">
+          <input
+            type="text"
+            [placeholder]="'SEARCH_PLACEHOLDER' | translate"
+            [class.arabic-dir-input]="currentLang.englishName === 'Arabic'"
+          />
+          <div
+            class="search-icon2"
+            [class.arabic-dir-icon]="currentLang.englishName === 'Arabic'"
+          >
+            <i class="pi pi-search"></i>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="languages-dropdown" #langDropdown>
       <div class="selected-flag" (click)="toggleLangDropdown()">
         <img
@@ -49,8 +73,50 @@
         }
       </div>
     </div>
-    <div class="cart-section">
-      <i class="ri-shopping-bag-line"></i>
+    <div class="cart-section" #cartDropdown>
+      <div class="cart-section-icon" (click)="toggleCartDropdown()">
+        <i class="ri-shopping-bag-line"></i>
+        <span class="cart-count">5</span>
+      </div>
+      <div
+        class="cart-dropdown"
+        [class.arabic-dir]="currentLang.englishName === 'Arabic'"
+        [class.active]="isCartDropdownOpen()"
+      >
+        <div class="cart-header">
+          <p>{{ "MY_CART_LABEL" | translate }}</p>
+          <span class="cart-items-count"
+            >5 {{ "CART_ITEMS_LABEL" | translate }}</span
+          >
+        </div>
+        <div class="cart-body">
+          <div class="cart-items">
+            @for (cartItem of cartItems; track cartItem.id) {
+              <div class="cart-item">
+                <div class="left">
+                  <img
+                    [src]="cartItem.image"
+                    width="50"
+                    [alt]="cartItem.name"
+                  />
+                  <div class="item-details">
+                    <p class="item-name">{{ cartItem.name }}</p>
+                    <p class="item-quantity-price">
+                      {{ cartItem.quantity }} x ${{ cartItem.price }}
+                    </p>
+                  </div>
+                </div>
+                <div class="right">
+                  <span class="total-price">{{
+                    cartItem.quantity * cartItem.price | currency
+                  }}</span>
+                  <i class="pi pi-times"></i>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
     </div>
     <div class="change-theme-section" (click)="changeTheming()">
       <i
