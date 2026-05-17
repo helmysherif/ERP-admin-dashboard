@@ -5,9 +5,16 @@ import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { SharedService } from '../../components/services/shared.service';
 import { DrawerModule } from 'primeng/drawer';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-main-layout',
-  imports: [CommonModule, SidebarComponent, NavbarComponent, DrawerModule],
+  imports: [
+    CommonModule,
+    SidebarComponent,
+    NavbarComponent,
+    DrawerModule,
+    RouterModule,
+  ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
 })

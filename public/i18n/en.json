@@ -33,7 +33,7 @@
   "MESSAGES_TEXT": "Messages",
   "ALERT_TEXT": "Alerts",
   "NO_NOTIFICATIONS_LABEL": "Hey! You have no any notifications yet.",
-  "USERNAME" : "Ahmed Ali",
+  "USERNAME" : "Ahmed John",
   "USER_ROLE" : "Admin",
   "WELCOME_USERNAME" : "Welcome {{username}}!",
   "PROFILE_LABEL": "Profile",
@@ -43,5 +43,7 @@
   "BALANCE_LABEL": "Balance",
   "SETTINGS_LABEL": "Settings",
   "LOCK_SCREEN_LABEL": "Lock Screen",
-  "LOGOUT_LABEL": "Logout"
+  "LOGOUT_LABEL": "Logout",
+  "WELCOME_TO_USER" : "Good Morning, {{username}}!",
+  "WELCOME_TO_USER_SUBTITLE" : "Here's what's happening with your store today."
 }

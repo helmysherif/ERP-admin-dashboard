@@ -8,6 +8,20 @@ export const routes: Routes = [
       import('./pages/main-layout/main-layout.component').then(
         (m) => m.MainLayoutComponent,
       ),
+    children: [
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard.component').then(
+            (m) => m.DashboardComponent,
+          ),
+      },
+    ],
     // canActivate: [authGuard],
   },
   {

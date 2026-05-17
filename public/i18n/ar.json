@@ -33,7 +33,7 @@
     "MESSAGES_TEXT": "الرسائل",
     "ALERT_TEXT": "التنبيهات",
     "NO_NOTIFICATIONS_LABEL": "مرحبًا! ليس لديك أي إشعارات حتى الآن.",
-    "USERNAME": "أحمد علي",
+    "USERNAME": "أحمد جون",
     "USER_ROLE": "مدير",
     "WELCOME_USERNAME": "مرحبًا {{username}}!",
     "PROFILE_LABEL": "الملف الشخصي",
@@ -43,5 +43,7 @@
     "BALANCE_LABEL": "الرصيد",
     "SETTINGS_LABEL": "الإعدادات",
     "LOCK_SCREEN_LABEL": "قفل الشاشة",
-    "LOGOUT_LABEL": "تسجيل الخروج"
+    "LOGOUT_LABEL": "تسجيل الخروج",
+    "WELCOME_TO_USER": "صباح الخير، {{username}}!",
+    "WELCOME_TO_USER_SUBTITLE": "إليك ما يحدث في متجرك اليوم."
 }

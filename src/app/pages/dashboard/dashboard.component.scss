@@ -1,0 +1,22 @@
+.dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .left-side {
+    .welcome-message {
+      margin: 0;
+      font-size: 16px;
+      //   margin-bottom: 5px;
+      color: var(--heading-color);
+      transition: 0.4s;
+    }
+    .welcome-subtitle {
+      margin: 0;
+      font-size: 16px;
+      margin-bottom: 0.25rem;
+      color: #878a99;
+      transition: 0.4s;
+      font-size: 15px;
+    }
+  }
+}

@@ -17,33 +17,7 @@
       [currentLanguage]="currentLanguage"
     />
     <div class="content">
-      content
-      <!-- <div class="button change-theme-btn" (click)="changeTheming()">
-        <i
-          class="pi"
-          [ngClass]="currentTheme === 'light' ? 'pi-moon' : 'pi-sun'"
-        ></i>
-      </div>
-      <div
-        class="button change-language-btn"
-        (click)="switchLanguage(currentLanguage === 'en' ? 'ar' : 'en')"
-      >
-        <span [class.ar-text]="currentLanguage === 'en'">{{
-          currentLanguage === "ar" ? "EN" : "ع"
-        }}</span>
-      </div>
-    </div> -->
+      <router-outlet />
     </div>
   </div>
-  <!-- <div class="button change-theme-btn" (click)="changeTheming()">
-  <i class="pi" [ngClass]="currentTheme === 'light' ? 'pi-moon' : 'pi-sun'"></i>
-</div>
-<div
-  class="button change-language-btn"
-  (click)="switchLanguage(currentLanguage === 'en' ? 'ar' : 'en')"
->
-  <span [class.ar-text]="currentLanguage === 'en'">{{
-    currentLanguage === "ar" ? "EN" : "ع"
-  }}</span>
-</div> -->
 </div>
