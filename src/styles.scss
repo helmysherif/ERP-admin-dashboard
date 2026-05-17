@@ -32,6 +32,19 @@ body.light {
   --navbar-langs-dropdown-bg-color: #ffffff;
   --navbar-langs-dropdown-border-color: #e9ebec;
   --cart-header-title-color: #495057;
+  --cart-image-bg-color: #f3f6f9;
+  --cart-items-count-bg-color: #fef4e4;
+  --cart-items-header-border-color: #e9ebec;
+  --cart-item-name-color: #495057;
+  --cart-item-scrollbar-thumb-color: #ced4da;
+  --cart-item-hover-bg-color: #eff2f7;
+  --cart-total-price-color: #495057;
+  --notification-active-tab-bg-color: #ffffff;
+  --notification-empty-text-color: #495057;
+  --user-info-bg-color: #f3f3f9;
+  --user-info-text-color: #495057;
+  --user-info-divider-color: #e9ebec;
+  --user-info-link-color: #212529;
 }
 body.dark {
   --auth-bg-color: #1a1d21;
@@ -54,4 +67,17 @@ body.dark {
   --navbar-langs-dropdown-bg-color: #292e33;
   --navbar-langs-dropdown-border-color: #32383e;
   --cart-header-title-color: #ced4da;
+  --cart-image-bg-color: #282b2e;
+  --cart-items-count-bg-color: rgba(247, 184, 75, 0.15);
+  --cart-items-header-border-color: #32383e;
+  --cart-item-name-color: #ced4da;
+  --cart-item-scrollbar-thumb-color: #495057;
+  --cart-item-hover-bg-color: #2f343a;
+  --cart-total-price-color: #ced4da;
+  --notification-active-tab-bg-color: #292e33;
+  --notification-empty-text-color: #ced4da;
+  --user-info-bg-color: #31373c;
+  --user-info-text-color: #e9ecef;
+  --user-info-divider-color: #32383e;
+  --user-info-link-color: #adb5bd;
 }

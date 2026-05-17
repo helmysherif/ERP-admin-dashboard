@@ -76,7 +76,7 @@
     <div class="cart-section" #cartDropdown>
       <div class="cart-section-icon" (click)="toggleCartDropdown()">
         <i class="ri-shopping-bag-line"></i>
-        <span class="cart-count">5</span>
+        <span class="cart-count">{{ cartItems.length }}</span>
       </div>
       <div
         class="cart-dropdown"
@@ -86,7 +86,7 @@
         <div class="cart-header">
           <p>{{ "MY_CART_LABEL" | translate }}</p>
           <span class="cart-items-count"
-            >5 {{ "CART_ITEMS_LABEL" | translate }}</span
+            >{{ cartItems.length }} {{ "CART_ITEMS_LABEL" | translate }}</span
           >
         </div>
         <div class="cart-body">
@@ -94,15 +94,13 @@
             @for (cartItem of cartItems; track cartItem.id) {
               <div class="cart-item">
                 <div class="left">
-                  <img
-                    [src]="cartItem.image"
-                    width="50"
-                    [alt]="cartItem.name"
-                  />
+                  <div class="product-img">
+                    <img [src]="cartItem.image" [alt]="cartItem.name" />
+                  </div>
                   <div class="item-details">
                     <p class="item-name">{{ cartItem.name }}</p>
                     <p class="item-quantity-price">
-                      {{ cartItem.quantity }} x ${{ cartItem.price }}
+                      Quantity: {{ cartItem.quantity }} x ${{ cartItem.price }}
                     </p>
                   </div>
                 </div>
@@ -110,19 +108,271 @@
                   <span class="total-price">{{
                     cartItem.quantity * cartItem.price | currency
                   }}</span>
-                  <i class="pi pi-times"></i>
+                  <i
+                    class="pi pi-times"
+                    (click)="removeCartItem(cartItem.id)"
+                  ></i>
                 </div>
+              </div>
+            } @empty {
+              <div class="empty-state-section">
+                <div class="shopping-cart-icon">
+                  <i class="ri-shopping-cart-line"></i>
+                </div>
+                <p>{{ "CART_EMPTY_LABEL" | translate }}</p>
+                <button class="shop-now-button">
+                  {{ "SHOP_NOW_LABEL" | translate }}
+                </button>
               </div>
             }
           </div>
         </div>
+        @if (cartItems.length > 0) {
+          <div class="cart-footer">
+            <div class="total-price-section">
+              <p>{{ "TOTAL_PRICE_LABEL" | translate }}</p>
+              <span>{{ totalPrice | currency }}</span>
+            </div>
+            <button class="checkout-button">
+              {{ "CHECKOUT_LABEL" | translate }}
+            </button>
+          </div>
+        }
       </div>
+    </div>
+    <div class="full-screen-button" (click)="toggleFullScreen()">
+      <!-- <i class="ri-fullscreen-line"></i>
+      <i class="ri-fullscreen-exit-line"></i> -->
+      <i
+        [ngClass]="
+          isFullScreen ? 'ri-fullscreen-exit-line' : 'ri-fullscreen-line'
+        "
+      ></i>
     </div>
     <div class="change-theme-section" (click)="changeTheming()">
       <i
         class="pi"
         [ngClass]="currentTheme === 'light' ? 'pi-moon' : 'pi-sun'"
       ></i>
+    </div>
+    <div class="notifications-section" #notificationsDropdown>
+      <div class="notification-icon" (click)="toggleNotificationsDropdown()">
+        <i class="pi pi-bell"></i>
+        <span class="notification-count">3</span>
+      </div>
+      <div
+        class="notifications-dropdown"
+        [class.arabic-dir]="currentLang.englishName === 'Arabic'"
+        [class.active]="isNotificationsDropdownOpen()"
+      >
+        <div class="notifications-header">
+          <div class="top">
+            <p>{{ "NOTIFICATIONS_LABEL" | translate }}</p>
+            <span>
+              4
+              {{ "NOTIFICATIONS_NEW_LABEL" | translate }}
+            </span>
+          </div>
+          <div class="bottom pt-3">
+            <p-tabs [value]="0" class="notifications-tabs">
+              <p-tablist>
+                <p-tab [value]="0">{{ "ALL_TEXT" | translate }} (4)</p-tab>
+                <p-tab [value]="1">{{ "MESSAGES_TEXT" | translate }}</p-tab>
+                <p-tab [value]="2">{{ "ALERT_TEXT" | translate }}</p-tab>
+              </p-tablist>
+              <p-tabpanels>
+                <p-tabpanel [value]="0">
+                  <div class="notification-items">
+                    @for (item of notifications; track item.id) {
+                      <div class="notification-item">
+                        <div class="left2">
+                          @if (item.imageType === "icon") {
+                            <div
+                              class="icon-img"
+                              [class.icon-img1]="item.id === 3"
+                            >
+                              <i [class]="item.image"></i>
+                            </div>
+                          } @else {
+                            <img
+                              [src]="item.image"
+                              width="32px"
+                              [alt]="item.imageType"
+                              class="avatar-img"
+                            />
+                          }
+                        </div>
+                        <div class="right2">
+                          @if (item.username) {
+                            <p class="notification-title">
+                              {{ item.username }}
+                            </p>
+                          }
+                          <p
+                            class="notification-message"
+                            [innerHTML]="item.text"
+                            [class.not-username]="!item.username"
+                          ></p>
+                          <span class="notification-time">
+                            <i class="ri-time-line"></i>
+                            {{ timeAgo(item.date) }}
+                          </span>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                  <div class="show-notifications-btn">
+                    <button class="show-all-notifications">
+                      {{ "SHOW_ALL_NOTIFICATIONS_LABEL" | translate }}
+                      <!-- <i [class]="'ri-arrow-right-long-line'"></i> -->
+                      <i
+                        [ngClass]="{
+                          'ri-arrow-right-long-line':
+                            currentLanguage() === 'en',
+                          'ri-arrow-left-long-line': currentLanguage() === 'ar',
+                        }"
+                      ></i>
+                    </button>
+                  </div>
+                </p-tabpanel>
+                <p-tabpanel [value]="1">
+                  <div class="notification-items">
+                    @for (item of UsersNotifications; track item.id) {
+                      <div class="notification-item">
+                        <div class="left2">
+                          @if (item.imageType === "icon") {
+                            <div
+                              class="icon-img"
+                              [class.icon-img1]="item.id === 3"
+                            >
+                              <i [class]="item.image"></i>
+                            </div>
+                          } @else {
+                            <img
+                              [src]="item.image"
+                              width="32px"
+                              [alt]="item.imageType"
+                              class="avatar-img"
+                            />
+                          }
+                        </div>
+                        <div class="right2">
+                          @if (item.username) {
+                            <p class="notification-title">
+                              {{ item.username }}
+                            </p>
+                          }
+                          <p
+                            class="notification-message"
+                            [innerHTML]="item.text"
+                            [class.not-username]="!item.username"
+                          ></p>
+                          <span class="notification-time">
+                            <i class="ri-time-line"></i>
+                            {{ timeAgo(item.date) }}
+                          </span>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                  <div class="show-notifications-btn">
+                    <button class="show-all-notifications">
+                      {{ "SHOW_ALL_NOTIFICATIONS_LABEL" | translate }}
+                      <!-- <i [class]="'ri-arrow-right-long-line'"></i> -->
+                      <i
+                        [ngClass]="{
+                          'ri-arrow-right-long-line':
+                            currentLanguage() === 'en',
+                          'ri-arrow-left-long-line': currentLanguage() === 'ar',
+                        }"
+                      ></i>
+                    </button>
+                  </div>
+                </p-tabpanel>
+                <p-tabpanel [value]="2">
+                  <div class="empty-state">
+                    <img
+                      src="images/bell.svg"
+                      alt="No Alerts"
+                      class="empty-state-img"
+                      width="80px"
+                    />
+                    <p>
+                      {{ "NO_NOTIFICATIONS_LABEL" | translate }}
+                    </p>
+                  </div>
+                </p-tabpanel>
+              </p-tabpanels>
+            </p-tabs>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user-info-section" #userDropdown>
+      <div class="user-data" (click)="toggleUserDropdown()">
+        <img src="images/img3.jpg" alt="user img" />
+        <div class="right-side">
+          <p class="username">{{ "USERNAME" | translate }}</p>
+          <span class="user-role">{{ "USER_ROLE" | translate }}</span>
+        </div>
+      </div>
+      <div
+        class="user-dropdown"
+        [class.arabic-dir]="currentLang.englishName === 'Arabic'"
+        [class.active]="isUserDropdownOpen()"
+      >
+        <p class="welcome-message">
+          {{
+            "WELCOME_USERNAME" | translate: { username: "USERNAME" | translate }
+          }}
+        </p>
+        <ul class="first-ul">
+          <li>
+            <i class="ri-account-circle-2-line"></i>
+            <span>{{ "PROFILE_LABEL" | translate }}</span>
+          </li>
+          <li>
+            <i class="ri-message-2-line"></i>
+            <span>{{ "MESSAGES_LABEL" | translate }}</span>
+          </li>
+          <li>
+            <i class="ri-calendar-check-fill"></i>
+            <span>{{ "TASKBOARD_LABEL" | translate }}</span>
+          </li>
+          <li>
+            <i class="ri-lifebuoy-line"></i>
+            <span>{{ "HELP_LABEL" | translate }}</span>
+          </li>
+        </ul>
+        <ul class="second-ul">
+          <li class="balance-li">
+            <div>
+              <i class="ri-wallet-3-fill"></i>
+              <span class="balance-label"
+                >{{ "BALANCE_LABEL" | translate }} :
+              </span>
+            </div>
+            <span class="balance-amount">$2500</span>
+          </li>
+          <li class="balance-li">
+            <div>
+              <i class="ri-settings-5-line"></i>
+              <span>{{ "SETTINGS_LABEL" | translate }}</span>
+            </div>
+            <p class="new-text m-0">
+              {{ "NOTIFICATIONS_NEW_LABEL" | translate }}
+            </p>
+          </li>
+          <li>
+            <i class="pi pi-lock"></i>
+            <span>{{ "LOCK_SCREEN_LABEL" | translate }}</span>
+          </li>
+          <li routerLink="/auth/login">
+            <i class="pi pi-sign-out"></i>
+            <span>{{ "LOGOUT_LABEL" | translate }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
