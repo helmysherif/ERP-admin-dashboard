@@ -46,6 +46,15 @@ body.light {
   --user-info-divider-color: #e9ebec;
   --user-info-link-color: #212529;
   --heading-color: #495057;
+  --calendar-bg-color: #ffffff;
+  --calendar-tbody-td-color: #495057;
+  --calendar-tbody-td-hover-color: #f3f6f9;
+  --calendar-tbody-bg-color: #ffffff;
+  --calendar-input-text-color: #212529;
+  --statistic-card-bg-color: #ffffff;
+  --statistic-card-link-text-color: rgb(64, 81, 137);
+  --filter-tabs-bg-color: #e1ebfd;
+  --orders-count-bg-color: #f9fbfc;
 }
 body.dark {
   --auth-bg-color: #1a1d21;
@@ -82,4 +91,13 @@ body.dark {
   --user-info-divider-color: #32383e;
   --user-info-link-color: #adb5bd;
   --heading-color: #ced4da;
+  --calendar-bg-color: #262a2f;
+  --calendar-tbody-td-color: #ced4da;
+  --calendar-tbody-td-hover-color: #282b2e;
+  --calendar-tbody-bg-color: #212529;
+  --calendar-input-text-color: #ced4da;
+  --statistic-card-bg-color: #212529;
+  --statistic-card-link-text-color: #ced4da;
+  --filter-tabs-bg-color: rgba(53, 119, 241, 0.15);
+  --orders-count-bg-color: #25282c;
 }

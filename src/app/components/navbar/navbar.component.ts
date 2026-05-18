@@ -10,38 +10,16 @@ import {
   ViewChild,
 } from '@angular/core';
 import { TabsModule } from 'primeng/tabs';
-import { SharedService } from '../../../components/services/shared.service';
-import { TranslationService } from '../../../components/services/translation.service';
+import { SharedService } from '../../shared/services/shared.service';
+import { TranslationService } from '../../shared/services/translation.service';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
-interface Language {
-  arabicName: string;
-  englishName: string;
-  flag: string;
-}
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
-interface Notification {
-  id: number;
-  image: string;
-  text: string;
-  date: Date;
-  imageType: 'icon' | 'avatar';
-  username?: string;
-}
+import {
+  CartItem,
+  Language,
+  Notification,
+} from '../../shared/interfaces/navbar';
 @Component({
   selector: 'app-navbar',
   imports: [CommonModule, TranslatePipe, TabsModule, RouterLink],

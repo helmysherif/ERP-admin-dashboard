@@ -1,0 +1,19 @@
+<div id="chart">
+  @defer (on immediate) {
+    <apx-chart
+      class="chart-content"
+      [series]="chartOptions.series!"
+      [chart]="chartOptions.chart!"
+      [stroke]="chartOptions.stroke!"
+      [plotOptions]="chartOptions.plotOptions!"
+      [fill]="chartOptions.fill!"
+      [labels]="chartOptions.labels!"
+      [markers]="chartOptions.markers!"
+      [xaxis]="chartOptions.xaxis!"
+      [yaxis]="chartOptions.yaxis!"
+      [tooltip]="chartOptions.tooltip!"
+    ></apx-chart>
+  } @placeholder {
+    <div>Loading Chart...</div>
+  }
+</div>

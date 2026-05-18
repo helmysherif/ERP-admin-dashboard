@@ -1,0 +1,78 @@
+.statistic-card {
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(56, 65, 74, 0.15);
+  background-color: var(--statistic-card-bg-color);
+  transition: 0.4s;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  &-title {
+    color: #878a99;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  &-value {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--heading-color);
+    transition: 0.4s;
+    i {
+      font-size: 19px;
+      position: relative;
+      top: 2px;
+      font-weight: 600;
+      color: var(--heading-color);
+      transition: 0.4s;
+    }
+    .val {
+      position: relative;
+      left: -2px;
+    }
+  }
+  &-link {
+    margin: 0;
+    color: var(--statistic-card-link-text-color);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.4s;
+  }
+  .right-part {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .value-percentage {
+    font-size: 14px;
+    font-weight: 500;
+    i {
+      font-size: 13px;
+    }
+  }
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: 0.4s;
+    i {
+      font-size: 22px;
+    }
+    &.arabic-card-icon {
+      margin-right: auto;
+      margin-left: inherit;
+    }
+  }
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 8px rgba(56, 65, 74, 0.1);
+  }
+}

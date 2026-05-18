@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { TranslationService } from '../../components/services/translation.service';
-import { SidebarComponent } from '../components/sidebar/sidebar.component';
-import { NavbarComponent } from '../components/navbar/navbar.component';
-import { SharedService } from '../../components/services/shared.service';
+import { TranslationService } from '../../shared/services/translation.service';
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { SharedService } from '../../shared/services/shared.service';
 import { DrawerModule } from 'primeng/drawer';
 import { RouterModule } from '@angular/router';
 @Component({

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { TranslationService } from '../../../components/services/translation.service';
+import { TranslationService } from '../../../shared/services/translation.service';
 import { SelectModule } from 'primeng/select';
 import {
   FormsModule,

@@ -45,5 +45,11 @@
     "LOCK_SCREEN_LABEL": "قفل الشاشة",
     "LOGOUT_LABEL": "تسجيل الخروج",
     "WELCOME_TO_USER": "صباح الخير، {{username}}!",
-    "WELCOME_TO_USER_SUBTITLE": "إليك ما يحدث في متجرك اليوم."
+    "WELCOME_TO_USER_SUBTITLE": "إليك ما يحدث في متجرك اليوم.",
+    "ADD_PRODUCT_LABEL": "إضافة منتج",
+    "REVUNE_LABEL": "الإيرادات",
+    "ORDERS_LABEL": "الطلبات",
+    "EARNINGS_LABEL": "الأرباح",
+    "REFUNDS_LABEL": "المبالغ المستردة",
+    "CONVERSION_LABEL": "نسبة التحويل"
 }

@@ -1,9 +1,92 @@
 <section class="dashboard">
-  <div class="left-side">
-    <p class="welcome-message">
-      {{ "WELCOME_TO_USER" | translate: { username: "Ahmed John" } }}
-    </p>
-    <p class="welcome-subtitle">{{ "WELCOME_TO_USER_SUBTITLE" | translate }}</p>
+  <div class="welcome-header">
+    <div class="left-side">
+      <p class="welcome-message">
+        {{ "WELCOME_TO_USER" | translate: { username: "Ahmed John" } }}
+      </p>
+      <p class="welcome-subtitle">
+        {{ "WELCOME_TO_USER_SUBTITLE" | translate }}
+      </p>
+    </div>
+    <div class="right-side">
+      <div class="date-calendar">
+        <p-datepicker
+          [(ngModel)]="rangeDates"
+          selectionMode="range"
+          [readonlyInput]="true"
+          [showIcon]="true"
+          styleClass="select-Range-date"
+          [class.arabic-datepicker]="currentLanguage === 'ar'"
+          [dateFormat]="'dd M,yy'"
+        />
+      </div>
+      <button class="add-product-btn">
+        <i class="ri-add-circle-line"></i>
+        {{ "ADD_PRODUCT_LABEL" | translate }}
+      </button>
+      <button class="pulse-line-btn">
+        <i class="ri-pulse-fill"></i>
+      </button>
+    </div>
   </div>
-  <div class="right-side">right</div>
+  <div class="statistics-data-section">
+    <div class="statistics-cards">
+      @for (card of statisticsData; track card.id) {
+        <app-statistic-card
+          [statisticCardData]="card"
+          [currentLanguage]="currentLanguage"
+          [currentTheme]="currentTheme"
+        />
+      }
+    </div>
+  </div>
+  <div class="revune-and-locations-section">
+    <div class="revune-section">
+      <div class="revune-header">
+        <p class="revune-title">{{ "REVUNE_LABEL" | translate }}</p>
+        <div class="filter-tabs">
+          <button type="button" class="tab">all</button>
+          <button type="button" class="tab">1M</button>
+          <button type="button" class="tab">6M</button>
+          <button type="button" class="tab">1Y</button>
+        </div>
+      </div>
+      <div class="revune-body">
+        <div class="top-section">
+          <div
+            class="orders-count"
+            [class.arabic-orders-count]="currentLanguage === 'ar'"
+          >
+            <p>7585</p>
+            <span>{{ "ORDERS_LABEL" | translate }}</span>
+          </div>
+          <div
+            class="orders-count"
+            [class.arabic-orders-count]="currentLanguage === 'ar'"
+          >
+            <p>${{ 228931 | million }}</p>
+            <span>{{ "EARNINGS_LABEL" | translate }}</span>
+          </div>
+          <div
+            class="orders-count"
+            [class.arabic-orders-count]="currentLanguage === 'ar'"
+          >
+            <p>367</p>
+            <span>{{ "REFUNDS_LABEL" | translate }}</span>
+          </div>
+          <div
+            class="orders-count"
+            [class.arabic-orders-count]="currentLanguage === 'ar'"
+          >
+            <p>18.92%</p>
+            <span>{{ "CONVERSION_LABEL" | translate }}</span>
+          </div>
+        </div>
+        <div class="chart-section py-4">
+          <app-column-line-mix-chart />
+        </div>
+      </div>
+    </div>
+    <div class="locations-section">locations</div>
+  </div>
 </section>

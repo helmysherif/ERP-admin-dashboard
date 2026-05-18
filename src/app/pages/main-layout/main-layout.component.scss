@@ -19,9 +19,16 @@
       padding: 0 20px;
       // height: 1000px;
       padding-top: 80px;
+      transition: 0.4s;
     }
     @media all and (max-width: 768px) {
       grid-column: 1;
+    }
+    .content {
+      width: calc(100vw - 266px);
+      @media all and (max-width: 768px) {
+        width: 100vw;
+      }
     }
   }
   &.sidebar-open {
@@ -30,6 +37,11 @@
       background-color: var(--sidebar-bg-color);
       position: fixed;
       width: 70px;
+    }
+    .right-side {
+      .content {
+        width: calc(100vw - 86px);
+      }
     }
   }
 }

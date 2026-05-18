@@ -1,0 +1,63 @@
+<div class="statistic-card">
+  <div class="left-part">
+    <p class="statistic-card-title">
+      {{
+        currentLanguage() === "ar"
+          ? statisticCardData().arabicTitle
+          : statisticCardData().englishTitle
+      }}
+    </p>
+    <p class="statistic-card-value">
+      @if (statisticCardData().id === 1 || statisticCardData().id === 4) {
+        <span>
+          <i class="pi pi-dollar"></i>
+        </span>
+      }
+      <span class="val">{{ statisticCardData().value | million }}</span>
+    </p>
+    <p class="statistic-card-link" [routerLink]="statisticCardData().linkUrl">
+      {{
+        currentLanguage() === "ar"
+          ? statisticCardData().linkTitleArabic
+          : statisticCardData().linkTitleEnglish
+      }}
+    </p>
+  </div>
+  <div class="right-part">
+    <p
+      class="value-percentage"
+      [ngStyle]="{
+        color: statisticCardData().valueColor,
+      }"
+    >
+      @if (!statisticCardData().percentValue.includes("0.00")) {
+        @if (statisticCardData().percentValue.startsWith("+")) {
+          <i class="ri-arrow-right-up-line"></i>
+        } @else {
+          <i class="ri-arrow-right-down-line"></i>
+        }
+      }
+      {{ statisticCardData().percentValue }}
+    </p>
+    <div
+      class="card-icon"
+      [class.arabic-card-icon]="currentLanguage() === 'ar'"
+      [ngStyle]="{
+        backgroundColor:
+          currentTheme() === 'dark'
+            ? statisticCardData().iconBackgroundColorDark
+            : statisticCardData().iconBackgroundColor,
+      }"
+    >
+      <i
+        [ngStyle]="{
+          color:
+            currentTheme() === 'dark'
+              ? statisticCardData().iconColorDark
+              : statisticCardData().iconColor,
+        }"
+        [class]="statisticCardData().icon"
+      ></i>
+    </div>
+  </div>
+</div>

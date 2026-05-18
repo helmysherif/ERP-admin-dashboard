@@ -45,5 +45,11 @@
   "LOCK_SCREEN_LABEL": "Lock Screen",
   "LOGOUT_LABEL": "Logout",
   "WELCOME_TO_USER" : "Good Morning, {{username}}!",
-  "WELCOME_TO_USER_SUBTITLE" : "Here's what's happening with your store today."
+  "WELCOME_TO_USER_SUBTITLE" : "Here's what's happening with your store today.",
+  "ADD_PRODUCT_LABEL": "Add Product",
+  "REVUNE_LABEL": "Revenue",
+  "ORDERS_LABEL": "Orders",
+  "EARNINGS_LABEL": "Earnings",
+  "REFUNDS_LABEL": "Refunds",
+  "CONVERSION_LABEL": "Conversion Ratio"
 }

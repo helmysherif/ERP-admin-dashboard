@@ -1,6 +1,6 @@
 import { Component, inject, input, InputSignal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedService } from '../../../components/services/shared.service';
+import { SharedService } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,7 +24,7 @@ export class SidebarComponent {
           englishLabel: 'Dashboards',
           arabicLabel: 'لوحة القيادة',
           icon: 'ri-dashboard-2-line',
-          route: '/',
+          route: '/dashboard',
         },
       ],
     },

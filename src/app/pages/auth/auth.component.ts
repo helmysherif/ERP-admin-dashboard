@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TranslationService } from '../../components/services/translation.service';
+import { TranslationService } from '../../shared/services/translation.service';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-auth',
