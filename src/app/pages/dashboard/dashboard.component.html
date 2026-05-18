@@ -82,11 +82,21 @@
             <span>{{ "CONVERSION_LABEL" | translate }}</span>
           </div>
         </div>
-        <div class="chart-section py-4">
-          <app-column-line-mix-chart />
+        <div class="chart-section">
+          <app-column-line-mix-chart
+            [currentLang]="currentLanguage"
+            [currentTheme]="currentTheme"
+            [chartData]="revenueData"
+            [revenueChartLegends]="revenueChartLegends"
+          />
         </div>
       </div>
     </div>
-    <div class="locations-section">locations</div>
+    <div class="locations-section">
+      <app-earth-map
+        [currentLang]="currentLanguage"
+        [currentTheme]="currentTheme"
+      />
+    </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-<div id="chart">
+<div id="chart" [class.arabic-direction]="currentLang() === 'ar'">
   @defer (on immediate) {
     <apx-chart
       class="chart-content"
@@ -12,6 +12,9 @@
       [xaxis]="chartOptions.xaxis!"
       [yaxis]="chartOptions.yaxis!"
       [tooltip]="chartOptions.tooltip!"
+      [grid]="chartOptions.grid!"
+      [legend]="chartOptions.legend!"
+      [colors]="chartOptions.colors!"
     ></apx-chart>
   } @placeholder {
     <div>Loading Chart...</div>

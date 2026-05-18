@@ -5,3 +5,22 @@
   width: 100%;
   display: block;
 }
+::ng-deep .apexcharts-legend-marker {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  border-radius: 50% !important;
+  position: relative !important;
+  top: -1px !important;
+}
+::ng-deep .arabic-direction .apexcharts-legend-text {
+  position: relative !important;
+  top: -2px !important;
+}
+::ng-deep .arabic-direction .apexcharts-legend-series {
+  flex-direction: row-reverse !important;
+  gap: 7px !important;
+}
+::ng-deep tspan {
+  font-family: "Hanken Grotesk", "Cairo", sans-serif !important;
+}

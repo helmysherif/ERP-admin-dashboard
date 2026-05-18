@@ -1,0 +1,8 @@
+::ng-deep text {
+  transition: 0.4s;
+}
+::ng-deep .dark-mode {
+  text {
+    fill: #ced4da;
+  }
+}

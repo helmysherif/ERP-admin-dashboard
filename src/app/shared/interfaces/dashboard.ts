@@ -14,3 +14,14 @@ export interface StatisticsData {
   linkTitleEnglish: string;
   linkUrl: string;
 }
+export interface RevenueData {
+  englishMonth: string;
+  arabicMonth: string;
+  value1: number;
+  value2: number;
+  value3: number;
+}
+export interface ChartLegend {
+  englishName: string;
+  arabicName: string;
+}
