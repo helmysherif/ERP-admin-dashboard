@@ -51,5 +51,11 @@
     "ORDERS_LABEL": "الطلبات",
     "EARNINGS_LABEL": "الأرباح",
     "REFUNDS_LABEL": "المبالغ المستردة",
-    "CONVERSION_LABEL": "نسبة التحويل"
+    "CONVERSION_LABEL": "نسبة التحويل",
+    "SALES_BY_LOCATIONS_LABEL": "المبيعات حسب المواقع",
+    "EXPORT_REPORT_LABEL": "تصدير التقرير",
+    "BEST_SELLING_PRODUCTS_LABEL": "أفضل المنتجات مبيعًا",
+    "SORT_BY_LABEL": "ترتيب حسب",
+    "TOP_SELLER_LABEL": "أفضل البائعين",
+    "REPORTS_LABEL": "تقرير"
 }

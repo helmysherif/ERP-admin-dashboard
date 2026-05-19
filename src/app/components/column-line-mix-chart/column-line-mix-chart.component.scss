@@ -5,6 +5,13 @@
   width: 100%;
   display: block;
 }
+#chart {
+  @media all and (max-width: 768px) {
+    width: 900px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}
 ::ng-deep .apexcharts-legend-marker {
   width: 20px !important;
   height: 20px !important;

@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { RevenueData, StatisticsData } from '../interfaces/dashboard';
+import {
+  BestSellerProduct,
+  FilterOption,
+  RevenueData,
+  StatisticsData,
+} from '../interfaces/dashboard';
 
 @Injectable({
   providedIn: 'root',
@@ -157,11 +162,117 @@ export class DashboardService {
       value3: 33,
     },
   ];
+  private readonly DateFilterOptions: FilterOption[] = [
+    {
+      englisthName: 'today',
+      arabicName: 'اليوم',
+    },
+    {
+      englisthName: 'yesterday',
+      arabicName: 'أمس',
+    },
+    {
+      englisthName: 'last 7 Days',
+      arabicName: 'آخر 7 أيام',
+    },
+    {
+      englisthName: 'last 30 Days',
+      arabicName: 'آخر 30 يوم',
+    },
+    {
+      englisthName: 'this month',
+      arabicName: 'هذا الشهر',
+    },
+    {
+      englisthName: 'last month',
+      arabicName: 'الشهر الماضي',
+    },
+  ];
+  private readonly ReportFilterOptions: FilterOption[] = [
+    {
+      englisthName: 'Download report',
+      arabicName: 'تحميل التقرير',
+    },
+    {
+      englisthName: 'Import report',
+      arabicName: 'استيراد التقرير',
+    },
+    {
+      englisthName: 'Export report',
+      arabicName: 'تصدير التقرير',
+    },
+  ];
+  private readonly bestSellerProducts: BestSellerProduct[] = [
+    {
+      id: 1,
+      englishName: 'Branded T-Shirts',
+      arabicName: 'تيشيرتات ماركة',
+      imageUrl: 'images/product1.png',
+      price: 29,
+      ordersNumber: 62,
+      numberInStock: 510,
+      amount: 1798,
+      addedDate: new Date('2021-04-24'),
+    },
+    {
+      id: 2,
+      englishName: 'Bentwood chair',
+      arabicName: 'كرسي بينت وود',
+      imageUrl: 'images/product2.png',
+      price: 85.2,
+      ordersNumber: 35,
+      numberInStock: 0,
+      amount: 2982,
+      addedDate: new Date('2021-05-19'),
+    },
+    {
+      id: 3,
+      englishName: 'Borosil paper cup',
+      arabicName: 'كوب بوروسيل',
+      imageUrl: 'images/product3.png',
+      price: 14,
+      ordersNumber: 80,
+      numberInStock: 749,
+      amount: 1120,
+      addedDate: new Date('2021-05-01'),
+    },
+    {
+      id: 4,
+      englishName: 'One seater sofa',
+      arabicName: 'أريكة بمقعد واحد',
+      imageUrl: 'images/product4.png',
+      price: 127.5,
+      ordersNumber: 56,
+      numberInStock: 0,
+      amount: 7140,
+      addedDate: new Date('2021-02-11'),
+    },
+    {
+      id: 5,
+      englishName: 'Stillbird Helmet',
+      arabicName: 'خوذة ستيلبيرد',
+      imageUrl: 'images/product5.png',
+      price: 54,
+      ordersNumber: 74,
+      numberInStock: 805,
+      amount: 3996,
+      addedDate: new Date('2021-01-17'),
+    },
+  ];
   getStatisticsData(): StatisticsData[] {
     return this.statisticsData;
   }
   getRevenueData(): RevenueData[] {
     return this.RevenueData;
+  }
+  getDateFilterOptions(): FilterOption[] {
+    return this.DateFilterOptions;
+  }
+  getReportFilterOptions(): FilterOption[] {
+    return this.ReportFilterOptions;
+  }
+  getBestSellerProducts(): BestSellerProduct[] {
+    return this.bestSellerProducts;
   }
   constructor() {}
 }

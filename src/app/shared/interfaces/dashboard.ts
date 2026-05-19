@@ -25,3 +25,18 @@ export interface ChartLegend {
   englishName: string;
   arabicName: string;
 }
+export interface FilterOption {
+  englisthName: string;
+  arabicName: string;
+}
+export interface BestSellerProduct {
+  id: number;
+  englishName: string;
+  arabicName: string;
+  imageUrl: string;
+  price: number;
+  ordersNumber: number;
+  numberInStock: number;
+  amount: number;
+  addedDate: Date;
+}

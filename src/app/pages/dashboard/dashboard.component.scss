@@ -108,7 +108,7 @@
     grid-template-columns: 2fr 1fr;
     gap: 20px;
     margin-bottom: 20px;
-    @media all and (max-width: 768px) {
+    @media all and (max-width: 1126px) {
       display: block;
     }
     .revune-section,
@@ -119,7 +119,7 @@
       transition: 0.4s;
     }
     .locations-section {
-      padding: 1rem;
+      // padding: 1rem;
       @media all and (max-width: 768px) {
         margin-top: 20px;
       }
@@ -175,6 +175,12 @@
           gap: 20px;
           padding: 0 1rem;
           border-bottom: 1px dashed var(--cart-items-header-border-color);
+          @media all and (min-width: 1125px) {
+            grid-template-columns: repeat(auto-fit, minmax(79px, 1fr));
+          }
+          @media all and (min-width: 769px) and (max-width: 1109px) {
+            grid-template-columns: repeat(auto-fit, minmax(79px, 1fr));
+          }
           .orders-count {
             border-right: 1px dashed var(--cart-items-header-border-color);
             border-left: 0;
@@ -211,18 +217,236 @@
           }
         }
         .chart-section {
-          width: 100%;
-          // height: 300px; // 💡 Define your target height here in CSS instead
-          overflow: hidden; // 💡 Hard cutoff for any internal sub-pixel calculations or margins
-          display: block;
-
-          // Enforce structural limits on the chart component itself
-          app-column-line-mix-chart {
-            display: block;
-            width: 100%;
-            height: 100%;
+          @media all and (max-width: 768px) {
+            overflow-x: auto;
+            overflow-y: hidden;
+          }
+          // app-column-line-mix-chart {
+          //   display: block;
+          //   width: 100%;
+          //   height: 100%;
+          // }
+        }
+      }
+    }
+    .locations-section {
+      .location-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px dashed var(--cart-items-header-border-color);
+        padding: 1rem 0;
+        p {
+          padding-inline-start: 1rem;
+          margin: 0;
+          font-size: 17px;
+          color: var(--calendar-tbody-td-color);
+          transition: 0.4s;
+          font-weight: 600;
+        }
+        button {
+          margin-inline-end: 1rem;
+          color: var(--export-report-btn-text-color);
+          border: 0;
+          border-radius: 5px;
+          background-color: var(--export-report-btn-bg-color);
+          padding: 3px 12px;
+          font-size: 13px;
+          cursor: pointer;
+          transition: 0.4s;
+          &:hover {
+            background-color: #405189;
+            color: #ffffff;
           }
         }
+      }
+      .earth-map-container {
+        overflow-x: auto;
+        @media all and (max-width: 768px) {
+          margin: 0 10px 10px;
+        }
+      }
+      .country-progress-bars {
+        padding: 0 1rem;
+        padding-bottom: 20px;
+        .top-part {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-bottom: 7px;
+          p {
+            margin: 0;
+            color: var(--progress-bar-text-color);
+            text-transform: capitalize;
+            font-size: 14px;
+            transition: 0.4s;
+          }
+        }
+        .progress {
+          height: 7px;
+          transition: 0.4s;
+          background-color: var(--progress-bar-background-color);
+          .progress-bar {
+            background-color: rgb(64, 81, 137);
+          }
+        }
+      }
+    }
+  }
+  .best-selling-products-and-top-seller {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+    @media all and (max-width: 768px) {
+      display: block;
+    }
+    .best-selling-products,
+    .top-seller {
+      background-color: var(--statistic-card-bg-color);
+      box-shadow: 0 1px 2px rgba(56, 65, 74, 0.15);
+      border-radius: 5px;
+      transition: 0.4s;
+      // height: 1000px;
+      .section-header {
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--cart-items-header-border-color);
+        p {
+          padding-inline-start: 1rem;
+          margin: 0;
+          font-size: 17px;
+          color: var(--calendar-tbody-td-color);
+          transition: 0.4s;
+          font-weight: 600;
+        }
+        .left-side2 {
+          padding-inline-end: 1rem;
+          display: flex;
+          align-items: flex-end;
+          gap: 5px;
+          .sort-by-label {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+            color: #212529;
+          }
+          .reports-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #495057;
+            cursor: pointer;
+            text-transform: capitalize;
+          }
+          .sorting-data {
+            position: relative;
+            .sorting-label {
+              font-size: 14px;
+              font-weight: 500;
+              color: #495057;
+              cursor: pointer;
+              text-transform: capitalize;
+            }
+            .date-filter-dropdown {
+              position: absolute;
+              inset: 0px 0px auto auto;
+              margin: 0px;
+              box-shadow: 0 5px 10px rgba(30, 32, 37, 0.12);
+              width: 200px;
+              right: 0px;
+              top: 41px;
+              background: var(--navbar-langs-dropdown-bg-color);
+              border: 1px solid var(--navbar-langs-dropdown-border-color);
+              border-radius: 5px;
+              overflow: hidden;
+              opacity: 0;
+              visibility: hidden;
+              transform: translateY(-10px);
+              transition:
+                opacity 0.25s ease,
+                transform 0.25s ease,
+                visibility 0.25s;
+              z-index: 1001;
+              &.report-filter-dropdown {
+                top: 17px !important;
+              }
+              &.arabic-dir {
+                right: auto;
+                left: 0;
+              }
+              &.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+              }
+              @media all and (max-width: 500px) {
+                width: 90vw;
+                right: -3px;
+              }
+              ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li {
+                  transition: 0.3s;
+                  padding: 7px;
+                  cursor: pointer;
+                  span {
+                    color: #212529;
+                    font-size: 14px;
+                    text-transform: capitalize;
+                  }
+                  &:hover,
+                  &.active {
+                    background-color: #eff2f7;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .section-body {
+        .best-products {
+          .product {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            transition: 0.4s;
+            border-bottom: 1px solid #e9ebec;
+            &:last-child {
+              border-bottom: 0;
+            }
+            &-img {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              .image {
+                background-color: rgba(243, 246, 249);
+                height: 3rem;
+                width: 3rem;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                  width: 40px;
+                }
+              }
+              p {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .top-seller {
+      @media all and (max-width: 768px) {
+        margin-top: 20px;
       }
     }
   }

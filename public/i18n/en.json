@@ -51,5 +51,11 @@
   "ORDERS_LABEL": "Orders",
   "EARNINGS_LABEL": "Earnings",
   "REFUNDS_LABEL": "Refunds",
-  "CONVERSION_LABEL": "Conversion Ratio"
+  "CONVERSION_LABEL": "Conversion Ratio",
+  "SALES_BY_LOCATIONS_LABEL": "Sales by Locations",
+  "EXPORT_REPORT_LABEL": "Export Report",
+  "BEST_SELLING_PRODUCTS_LABEL": "Best Selling Products",
+  "SORT_BY_LABEL": "Sort by",
+  "TOP_SELLER_LABEL": "Top Seller",
+  "REPORTS_LABEL": "Reports"
 }

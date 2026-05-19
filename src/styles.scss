@@ -55,6 +55,10 @@ body.light {
   --statistic-card-link-text-color: rgb(64, 81, 137);
   --filter-tabs-bg-color: #e1ebfd;
   --orders-count-bg-color: #f9fbfc;
+  --progress-bar-text-color: #495057;
+  --progress-bar-background-color: #eff2f7;
+  --export-report-btn-bg-color: #e2e5ed;
+  --export-report-btn-text-color: #405189;
 }
 body.dark {
   --auth-bg-color: #1a1d21;
@@ -100,4 +104,8 @@ body.dark {
   --statistic-card-link-text-color: #ced4da;
   --filter-tabs-bg-color: rgba(53, 119, 241, 0.15);
   --orders-count-bg-color: #25282c;
+  --progress-bar-text-color: #ced4da;
+  --progress-bar-background-color: #2a2d31;
+  --export-report-btn-bg-color: rgba(64, 81, 137, 0.15);
+  --export-report-btn-text-color: #405189;
 }

@@ -93,10 +93,200 @@
       </div>
     </div>
     <div class="locations-section">
-      <app-earth-map
-        [currentLang]="currentLanguage"
-        [currentTheme]="currentTheme"
-      />
+      <div class="location-header">
+        <p>{{ "SALES_BY_LOCATIONS_LABEL" | translate }}</p>
+        <button>
+          {{ "EXPORT_REPORT_LABEL" | translate }}
+        </button>
+      </div>
+      <div class="location-body">
+        <div class="text-center pt-3 px-3 earth-map-container">
+          <app-earth-map
+            [currentLang]="currentLanguage"
+            [currentTheme]="currentTheme"
+          />
+        </div>
+        <div class="country-progress-bars">
+          <div class="progress-details mb-3">
+            <div class="top-part">
+              <p class="country-name">canada</p>
+              <p class="percentage">75%</p>
+            </div>
+            <div class="bottom-part">
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Default striped example"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div
+                  class="progress-bar progress-bar-striped"
+                  style="width: 75%"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="progress-details mb-3">
+            <div class="top-part">
+              <p class="country-name">greenland</p>
+              <p class="percentage">47%</p>
+            </div>
+            <div class="bottom-part">
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Default striped example"
+                aria-valuenow="47"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div
+                  class="progress-bar progress-bar-striped"
+                  style="width: 47%"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="progress-details">
+            <div class="top-part">
+              <p class="country-name">russia</p>
+              <p class="percentage">82%</p>
+            </div>
+            <div class="bottom-part">
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Default striped example"
+                aria-valuenow="82"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div
+                  class="progress-bar progress-bar-striped"
+                  style="width: 82%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="best-selling-products-and-top-seller">
+    <div class="best-selling-products">
+      <div class="section-header">
+        <p>{{ "BEST_SELLING_PRODUCTS_LABEL" | translate }}</p>
+        <div class="left-side2">
+          <span class="sort-by-label">{{ "SORT_BY_LABEL" | translate }}:</span>
+          <div class="sorting-data">
+            <span
+              class="sorting-label"
+              (click)="toggleUserDropdown()"
+              #DateFilterDropdown
+            >
+              {{
+                currentLanguage === "ar"
+                  ? selectedDateFilter.arabicName
+                  : selectedDateFilter.englisthName
+              }}
+              <i class="ri-arrow-down-s-line"></i>
+            </span>
+            <div
+              class="date-filter-dropdown"
+              [class.arabic-dir]="currentLanguage === 'ar'"
+              [class.active]="isDateDropdownOpen()"
+            >
+              <ul>
+                @for (date of dateFilterOptions; track $index) {
+                  <li
+                    (click)="changeSelectedDate(date)"
+                    [class.active]="
+                      selectedDateFilter.arabicName === date.arabicName ||
+                      selectedDateFilter.englisthName === date.englisthName
+                    "
+                  >
+                    <span>
+                      {{
+                        currentLanguage === "ar"
+                          ? date.arabicName
+                          : date.englisthName
+                      }}
+                    </span>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="best-products">
+          @for (product of bestSellerProducts; track product.id) {
+            <div class="product">
+              <div class="product-img">
+                <div class="image">
+                  <img [src]="product.imageUrl" alt="product image" />
+                </div>
+                <div class="details">
+                  <p>
+                    {{
+                      currentLanguage === "ar"
+                        ? product.arabicName
+                        : product.englishName
+                    }}
+                  </p>
+                  <span>{{ product.addedDate | date: "mediumDate" }}</span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="top-seller">
+      <div class="section-header">
+        <p>{{ "TOP_SELLER_LABEL" | translate }}</p>
+        <div class="left-side2">
+          <span
+            class="reports-label"
+            (click)="toggleReportDropdown()"
+            #ReportDropdown
+            style="cursor: pointer"
+          >
+            {{ "REPORTS_LABEL" | translate }}
+            <i class="ri-arrow-down-s-line"></i>
+          </span>
+          <div class="sorting-data">
+            <div
+              class="date-filter-dropdown report-filter-dropdown"
+              [class.arabic-dir]="currentLanguage === 'ar'"
+              [class.active]="isReportDropdownOpen()"
+            >
+              <ul>
+                @for (date of reportFilterOptions; track $index) {
+                  <li
+                    (click)="changeSelectedReportOption(date)"
+                    [class.active]="
+                      selectedReportOption.arabicName === date.arabicName ||
+                      selectedReportOption.englisthName === date.englisthName
+                    "
+                  >
+                    <span>
+                      {{
+                        currentLanguage === "ar"
+                          ? date.arabicName
+                          : date.englisthName
+                      }}
+                    </span>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
