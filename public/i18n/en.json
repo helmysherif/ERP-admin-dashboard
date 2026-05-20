@@ -61,5 +61,12 @@
   "OUT_OF_STOCK_LABEL": "Out of Stock",
   "STORE_VISITS_LABEL": "Store Visits by Source",
   "RECENT_ORDERS_LABEL": "Recent Orders",
-  "GENERATE_REPORT_LABEL": "Generate Report"
+  "GENERATE_REPORT_LABEL": "Generate Report",
+  "ORDER_ID_LABEL": "Order ID",
+  "CUSTOMER_LABEL": "Customer",
+  "PRODUCT_LABEL": "Product",
+  "AMOUNT_LABEL": "Amount",
+  "VENDOR_LABEL": "Vendor",
+  "STATUS_LABEL": "Status",
+  "RATED_LABEL": "Rating"
 }

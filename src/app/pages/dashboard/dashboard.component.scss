@@ -664,6 +664,25 @@
           }
         }
       }
+      .section-body {
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          thead {
+            border-bottom: 1px solid var(--cart-items-header-border-color);
+            background-color: var(--table-thead-bg-color);
+            transition: 0.4s;
+            tr {
+              th {
+                padding: 10px 0;
+                text-align: center;
+                color: #878a99;
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
     }
     .recent-orders-section {
       // padding: 1rem;

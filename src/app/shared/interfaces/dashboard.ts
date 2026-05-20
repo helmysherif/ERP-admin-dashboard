@@ -57,3 +57,14 @@ export interface DunatChartData {
   value: number;
   color: string;
 }
+export interface Order {
+  orderId: string;
+  customerName: string;
+  customerImg: string;
+  productName: string;
+  amount: number;
+  vendor: string;
+  status: 'Paid' | 'Pending' | 'Unpaid';
+  rating: number;
+  votes: number;
+}

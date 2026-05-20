@@ -15,6 +15,7 @@ import {
   ChartLegend,
   DunatChartData,
   FilterOption,
+  Order,
   RevenueData,
   StatisticsData,
   TopSeller,
@@ -69,6 +70,7 @@ export class DashboardComponent {
   reportFilterOptions: FilterOption[] = [];
   bestSellerProducts: BestSellerProduct[] = [];
   topSellers: TopSeller[] = [];
+  recentOrders: Order[] = [];
   dunatChartData: DunatChartData[] = [
     {
       englishName: 'Direct',
@@ -129,6 +131,7 @@ export class DashboardComponent {
     this.reportFilterOptions = this.dashboardService.getReportFilterOptions();
     this.bestSellerProducts = this.dashboardService.getBestSellerProducts();
     this.topSellers = this.dashboardService.getTopSellers();
+    this.recentOrders = this.dashboardService.getRecentOrders();
     this.selectedDateFilter = this.dateFilterOptions[0];
     this.selectedReportOption = this.reportFilterOptions[0];
     this.selectedReportOption2 = this.reportFilterOptions[0];

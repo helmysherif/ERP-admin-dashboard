@@ -71,6 +71,7 @@ body.light {
   --out-of-stock-bg-color: #fde8e4;
   --generate-report-btn-color: #299cdb;
   --generate-report-btn-bg-color: #dff0fa;
+  --table-thead-bg-color: #f3f6f9;
 }
 body.dark {
   --auth-bg-color: #1a1d21;
@@ -132,4 +133,5 @@ body.dark {
   --out-of-stock-bg-color: rgba(240, 101, 72, 0.15);
   --generate-report-btn-color: #299cdb;
   --generate-report-btn-bg-color: rgba(41, 156, 219, 0.15);
+  --table-thead-bg-color: #282b2e;
 }

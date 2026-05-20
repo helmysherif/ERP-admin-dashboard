@@ -29,9 +29,21 @@
       @media all and (max-width: 768px) {
         width: 100vw;
       }
-      // @media all and (min-width: 768px) and (max-width: 2560px) {
-      //   width: calc(100vw - 250px);
-      // }
+      @media all and (min-width: 1920px) and (max-width: 2047px) {
+        width: calc(100vw - 269px);
+      }
+      @media all and (min-width: 2048px) and (max-width: 2303px) {
+        width: calc(100vw - 271px);
+      }
+      @media all and (min-width: 2304px) and (max-width: 3071px) {
+        width: calc(100vw - 273px);
+      }
+      @media all and (min-width: 3072px) and (max-width: 4607px) {
+        width: calc(100vw - 280px);
+      }
+      @media all and (min-width: 4608px) {
+        width: calc(100vw - 251px);
+      }
     }
   }
   &.sidebar-open {
@@ -44,6 +56,21 @@
     .right-side {
       .content {
         width: calc(100vw - 86px);
+        @media all and (min-width: 1920px) and (max-width: 2047px) {
+          width: calc(100vw - 90px);
+        }
+        @media all and (min-width: 2048px) and (max-width: 2303px) {
+          width: calc(100vw - 91px);
+        }
+        @media all and (min-width: 2304px) and (max-width: 3071px) {
+          width: calc(100vw - 93px);
+        }
+        @media all and (min-width: 3072px) and (max-width: 4607px) {
+          width: calc(100vw - 100px);
+        }
+        @media all and (min-width: 4608px) {
+          width: calc(100vw - 72px);
+        }
       }
     }
   }

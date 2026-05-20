@@ -460,7 +460,6 @@
       </div>
     </div>
     <div class="recent-orders-section">
-      <!-- RECENT_ORDERS_LABEL -->
       <div class="section-header" style="padding: 0.95rem 0">
         <p>{{ "RECENT_ORDERS_LABEL" | translate }}</p>
         <div class="left-side2">
@@ -469,6 +468,45 @@
             <span>{{ "GENERATE_REPORT_LABEL" | translate }}</span>
           </button>
         </div>
+      </div>
+      <div class="section-body">
+        <table>
+          <thead>
+            <tr>
+              <th>{{ "ORDER_ID_LABEL" | translate }}</th>
+              <th>{{ "CUSTOMER_LABEL" | translate }}</th>
+              <th>{{ "PRODUCT_LABEL" | translate }}</th>
+              <th>{{ "AMOUNT_LABEL" | translate }}</th>
+              <th>{{ "VENDOR_LABEL" | translate }}</th>
+              <th>{{ "STATUS_LABEL" | translate }}</th>
+              <th>{{ "RATED_LABEL" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (order of recentOrders; track order.orderId) {
+              <tr class="text-center">
+                <td>{{ order.orderId }}</td>
+                <td>{{ order.customerName }}</td>
+                <td>{{ order.productName }}</td>
+                <td>
+                  {{ order.amount | currency: "USD" : "symbol" : "1.0-2" }}
+                </td>
+                <td>{{ order.vendor }}</td>
+                <td>
+                  <span
+                    class="status"
+                    [class.paid]="order.status === 'Paid'"
+                    [class.pending]="order.status === 'Pending'"
+                    [class.unpaid]="order.status === 'Unpaid'"
+                  >
+                    {{ order.status }}
+                  </span>
+                </td>
+                <td>{{ order.rating }} ({{ order.votes }})</td>
+              </tr>
+            }
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

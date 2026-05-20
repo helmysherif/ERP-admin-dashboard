@@ -61,5 +61,12 @@
     "OUT_OF_STOCK_LABEL": "نفد من المخزون",
     "STORE_VISITS_LABEL": "زيارات المتجر حسب المصدر",
     "RECENT_ORDERS_LABEL": "الطلبات الأخيرة",
-    "GENERATE_REPORT_LABEL": "توليد التقرير"
+    "GENERATE_REPORT_LABEL": "توليد التقرير",
+    "ORDER_ID_LABEL": "معرف الطلب",
+    "CUSTOMER_LABEL": "العميل",
+    "PRODUCT_LABEL": "المنتج",
+    "AMOUNT_LABEL": "المبلغ",
+    "VENDOR_LABEL": "البائع",
+    "STATUS_LABEL": "الحالة",
+    "RATED_LABEL": "التقييم"
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   BestSellerProduct,
   FilterOption,
+  Order,
   RevenueData,
   StatisticsData,
   TopSeller,
@@ -16,7 +17,7 @@ export class DashboardService {
       id: 1,
       englishTitle: 'Total earnings',
       arabicTitle: 'إجمالي الأرباح',
-      value: 2500,
+      value: 559251,
       valueColor: 'rgb(10,179,156)',
       percentValue: '+12%',
       icon: 'ri-money-dollar-circle-line',
@@ -32,7 +33,7 @@ export class DashboardService {
       id: 2,
       englishTitle: 'Orders',
       arabicTitle: 'إجمالي الطلبات',
-      value: 11452343,
+      value: 36894,
       valueColor: 'rgb(240,101,72)',
       percentValue: '-3.57%',
       icon: 'ri-shopping-bag-line',
@@ -48,7 +49,7 @@ export class DashboardService {
       id: 3,
       englishTitle: 'Customers',
       arabicTitle: 'إجمالي العملاء',
-      value: 3543442,
+      value: 183352156,
       valueColor: 'rgb(10,179,156)',
       percentValue: '+28.08%',
       icon: 'ri-user-line',
@@ -64,7 +65,7 @@ export class DashboardService {
       id: 4,
       englishTitle: 'My Balance',
       arabicTitle: 'رصيدي',
-      value: 144642,
+      value: 165891,
       valueColor: '#878a99',
       percentValue: '+0.00%',
       icon: 'ri-wallet-line',
@@ -328,6 +329,63 @@ export class DashboardService {
       percentageOfTotalSales: '57%',
     },
   ];
+  private readonly recentOrders: Order[] = [
+    {
+      orderId: '#VZ2112',
+      customerName: 'alex smith',
+      customerImg: 'images/avatar-1.jpg',
+      productName: 'clothes',
+      amount: 109,
+      vendor: 'zoetic fashion',
+      status: 'Paid',
+      rating: 5,
+      votes: 61,
+    },
+    {
+      orderId: '#VZ2111',
+      customerName: 'jansh brown',
+      customerImg: 'images/avatar-2.jpg',
+      productName: 'kitchen storage',
+      amount: 149,
+      vendor: 'micro design',
+      status: 'Pending',
+      rating: 4.5,
+      votes: 61,
+    },
+    {
+      orderId: '#VZ2109',
+      customerName: 'ayaan bowen',
+      customerImg: 'images/avatar-3.jpg',
+      productName: 'bike accessories',
+      amount: 215,
+      vendor: 'nesta technologies',
+      status: 'Paid',
+      rating: 4.9,
+      votes: 89,
+    },
+    {
+      orderId: '#VZ2108',
+      customerName: 'prezy mark',
+      customerImg: 'images/avatar-4.jpg',
+      productName: 'furniture',
+      amount: 199,
+      vendor: 'syntyce solutions',
+      status: 'Unpaid',
+      rating: 4.3,
+      votes: 47,
+    },
+    {
+      orderId: '#VZ2107',
+      customerName: 'vihan hudda',
+      customerImg: 'images/avatar-6.jpg',
+      productName: 'bags and wallets',
+      amount: 330,
+      vendor: 'iTest Factory',
+      status: 'Paid',
+      rating: 4.7,
+      votes: 161,
+    },
+  ];
   getStatisticsData(): StatisticsData[] {
     return this.statisticsData;
   }
@@ -345,6 +403,9 @@ export class DashboardService {
   }
   getTopSellers(): TopSeller[] {
     return this.topSellers;
+  }
+  getRecentOrders(): Order[] {
+    return this.recentOrders;
   }
   constructor() {}
 }

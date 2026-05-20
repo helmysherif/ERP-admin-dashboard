@@ -26,6 +26,7 @@ export class MainLayoutComponent {
   visibleSidebar = false;
   private translationService = inject(TranslationService);
   ngOnInit() {
+    // console.log(window.innerWidth);
     this.translationService.currentLanguage.subscribe((lang: 'ar' | 'en') => {
       this.currentLanguage = lang;
     });
