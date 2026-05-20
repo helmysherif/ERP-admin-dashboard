@@ -1,0 +1,20 @@
+<div
+  id="dunat-chart"
+  class="text-center py-3"
+  [class.arabic-direction2]="currentLang() === 'ar'"
+  [class.dark-theme2]="currentTheme() === 'dark'"
+>
+  <apx-chart
+    [series]="chartOptions.series!"
+    [chart]="chartOptions.chart!"
+    [responsive]="chartOptions.responsive!"
+    [labels]="chartOptions.labels!"
+    [legend]="chartOptions.legend!"
+    [colors]="chartOptions.colors!"
+    [stroke]="chartOptions.stroke!"
+    [responsive]="chartOptions.responsive!"
+    [dataLabels]="chartOptions.dataLabels!"
+    [plotOptions]="chartOptions.plotOptions!"
+    [states]="chartOptions.states!"
+  ></apx-chart>
+</div>

@@ -59,6 +59,18 @@ body.light {
   --progress-bar-background-color: #eff2f7;
   --export-report-btn-bg-color: #e2e5ed;
   --export-report-btn-text-color: #405189;
+  --product-added-date-text-color: #878a99;
+  --best-product-table-border-color: #e9ebec;
+  --sorted-by-label-color: #212529;
+  --sorting-label-color: #495057;
+  --date-filter-dropdown-bg-color: #ffffff;
+  --date-filter-dropdown-border-color: #ffffff;
+  --date-filter-dropdown-text-color: #212529;
+  --date-filter-dropdown-text-hovered-color: #eff2f7;
+  --out-of-stock-text-color: rgb(240, 101, 72);
+  --out-of-stock-bg-color: #fde8e4;
+  --generate-report-btn-color: #299cdb;
+  --generate-report-btn-bg-color: #dff0fa;
 }
 body.dark {
   --auth-bg-color: #1a1d21;
@@ -108,4 +120,16 @@ body.dark {
   --progress-bar-background-color: #2a2d31;
   --export-report-btn-bg-color: rgba(64, 81, 137, 0.15);
   --export-report-btn-text-color: #405189;
+  --product-added-date-text-color: #878a99;
+  --best-product-table-border-color: #32383e;
+  --sorted-by-label-color: #ced4da;
+  --sorting-label-color: #878a99;
+  --date-filter-dropdown-bg-color: #292e33;
+  --date-filter-dropdown-border-color: #32383e;
+  --date-filter-dropdown-text-color: #adb5bd;
+  --date-filter-dropdown-text-hovered-color: #2f343a;
+  --out-of-stock-text-color: rgb(240, 101, 72);
+  --out-of-stock-bg-color: rgba(240, 101, 72, 0.15);
+  --generate-report-btn-color: #299cdb;
+  --generate-report-btn-bg-color: rgba(41, 156, 219, 0.15);
 }

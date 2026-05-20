@@ -4,6 +4,7 @@ import {
   FilterOption,
   RevenueData,
   StatisticsData,
+  TopSeller,
 } from '../interfaces/dashboard';
 
 @Injectable({
@@ -258,6 +259,74 @@ export class DashboardService {
       amount: 3996,
       addedDate: new Date('2021-01-17'),
     },
+    {
+      id: 6,
+      englishName: 'Stillbird Helmet',
+      arabicName: 'خوذة ستيلبيرد',
+      imageUrl: 'images/product5.png',
+      price: 54,
+      ordersNumber: 74,
+      numberInStock: 805,
+      amount: 3996,
+      addedDate: new Date('2021-01-17'),
+    },
+  ];
+  private readonly topSellers: TopSeller[] = [
+    {
+      id: 1,
+      englishName: 'iTest Factory',
+      arabicName: 'مصنع iTest',
+      imageUrl: 'images/product6.png',
+      ownerName: 'oliver tyler',
+      category: 'bags and wallets',
+      stock: 8547,
+      totalSales: 541200,
+      percentageOfTotalSales: '32%',
+    },
+    {
+      id: 2,
+      englishName: 'digitech galaxy',
+      arabicName: 'ديجيتك جالاكسي',
+      imageUrl: 'images/product7.png',
+      ownerName: 'john roberts',
+      category: 'watches',
+      stock: 895,
+      totalSales: 75030,
+      percentageOfTotalSales: '79%',
+    },
+    {
+      id: 3,
+      englishName: 'nesta technologies',
+      arabicName: 'نستا تكنولوجيز',
+      imageUrl: 'images/product8.png',
+      ownerName: 'harley fuller',
+      category: 'bike accessories',
+      stock: 3470,
+      totalSales: 45600,
+      percentageOfTotalSales: '90%',
+    },
+    {
+      id: 4,
+      englishName: 'zoetic fashion',
+      arabicName: 'زويتيك فاشن',
+      imageUrl: 'images/product9.png',
+      ownerName: 'james bowen',
+      category: 'clothes',
+      stock: 5488,
+      totalSales: 29456,
+      percentageOfTotalSales: '40%',
+    },
+    {
+      id: 5,
+      englishName: 'meta4Systems',
+      arabicName: 'ميتا4سيستمز',
+      imageUrl: 'images/product10.png',
+      ownerName: 'zoe dennis',
+      category: 'furniture',
+      stock: 4100,
+      totalSales: 11260,
+      percentageOfTotalSales: '57%',
+    },
   ];
   getStatisticsData(): StatisticsData[] {
     return this.statisticsData;
@@ -273,6 +342,9 @@ export class DashboardService {
   }
   getBestSellerProducts(): BestSellerProduct[] {
     return this.bestSellerProducts;
+  }
+  getTopSellers(): TopSeller[] {
+    return this.topSellers;
   }
   constructor() {}
 }

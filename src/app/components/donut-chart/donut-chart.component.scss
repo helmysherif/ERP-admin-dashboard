@@ -1,0 +1,43 @@
+::ng-deep .apexcharts-canvas {
+  width: 100% !important;
+}
+.chart-content {
+  width: 100%;
+  display: block;
+}
+#dunat-chart {
+  @media all and (max-width: 768px) {
+    width: 900px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}
+::ng-deep .apexcharts-legend-marker {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  border-radius: 50% !important;
+  position: relative !important;
+  top: -1px !important;
+}
+::ng-deep .apexcharts-legend-text {
+  transition: 0.4s;
+}
+::ng-deep .arabic-direction2 .apexcharts-legend-text {
+  position: relative !important;
+  top: -1px !important;
+}
+::ng-deep .dark-theme2 .apexcharts-legend-text {
+  color: #ced4da !important;
+}
+::ng-deep .arabic-direction2 .apexcharts-legend-series {
+  flex-direction: row-reverse !important;
+  gap: 2px !important;
+}
+::ng-deep tspan {
+  font-family: "Hanken Grotesk", "Cairo", sans-serif !important;
+}
+::ng-deep .apexcharts-pie-series path {
+  outline: none !important;
+  stroke: transparent !important;
+}

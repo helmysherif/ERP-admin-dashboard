@@ -57,5 +57,9 @@
     "BEST_SELLING_PRODUCTS_LABEL": "أفضل المنتجات مبيعًا",
     "SORT_BY_LABEL": "ترتيب حسب",
     "TOP_SELLER_LABEL": "أفضل البائعين",
-    "REPORTS_LABEL": "تقرير"
+    "REPORTS_LABEL": "تقرير",
+    "OUT_OF_STOCK_LABEL": "نفد من المخزون",
+    "STORE_VISITS_LABEL": "زيارات المتجر حسب المصدر",
+    "RECENT_ORDERS_LABEL": "الطلبات الأخيرة",
+    "GENERATE_REPORT_LABEL": "توليد التقرير"
 }

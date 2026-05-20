@@ -40,3 +40,20 @@ export interface BestSellerProduct {
   amount: number;
   addedDate: Date;
 }
+export interface TopSeller {
+  id: number;
+  englishName: string;
+  arabicName: string;
+  imageUrl: string;
+  category: string;
+  stock: number;
+  totalSales: number;
+  percentageOfTotalSales: string;
+  ownerName: string;
+}
+export interface DunatChartData {
+  englishName: string;
+  arabicName: string;
+  value: number;
+  color: string;
+}

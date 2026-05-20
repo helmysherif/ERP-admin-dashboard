@@ -223,9 +223,12 @@
       </div>
       <div class="section-body">
         <div class="best-products">
-          @for (product of bestSellerProducts; track product.id) {
+          @for (
+            product of bestSellerProducts | paginator: first : rows;
+            track product.id
+          ) {
             <div class="product">
-              <div class="product-img">
+              <div class="product-img" style="width: 33%">
                 <div class="image">
                   <img [src]="product.imageUrl" alt="product image" />
                 </div>
@@ -240,8 +243,55 @@
                   <span>{{ product.addedDate | date: "mediumDate" }}</span>
                 </div>
               </div>
+              <div class="product-price" style="width: 15%">
+                <p>
+                  {{ product.price | currency: "USD" : "symbol" : "1.0-2" }}
+                </p>
+                <span>{{ currentLanguage === "ar" ? "السعر" : "Price" }}</span>
+              </div>
+              <div class="product-price" style="width: 15%">
+                <p>{{ product.ordersNumber }}</p>
+                <span>{{
+                  currentLanguage === "ar" ? "الطلبات" : "Orders"
+                }}</span>
+              </div>
+              <div class="product-price" style="width: 17%">
+                @if (product.numberInStock) {
+                  <p>{{ product.numberInStock }}</p>
+                } @else {
+                  <p class="out-of-stock-label">
+                    {{ "OUT_OF_STOCK_LABEL" | translate }}
+                  </p>
+                }
+                <span>{{
+                  currentLanguage === "ar" ? "المخزون" : "Stock"
+                }}</span>
+              </div>
+              <div class="product-price" style="width: 17%">
+                <p>
+                  {{ product.amount | currency: "USD" : "symbol" : "1.0-2" }}
+                </p>
+                <span>{{
+                  currentLanguage === "ar" ? "المبلغ" : "Amount"
+                }}</span>
+              </div>
             </div>
           }
+          <div class="pagination-container">
+            <p-paginator
+              (onPageChange)="onPageChange($event)"
+              [first]="first"
+              [rows]="rows"
+              [totalRecords]="bestSellerProducts.length"
+              styleClass="best-products-paginator"
+              [showCurrentPageReport]="true"
+              [currentPageReportTemplate]="
+                currentLanguage === 'ar'
+                  ? 'عرض {first} إلى {last} من أصل {totalRecords} نتيجة'
+                  : 'Showing {last} of {totalRecords} Results'
+              "
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -285,6 +335,139 @@
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="best-products top-sellers-data">
+          @for (
+            product of topSellers | paginator: first2 : rows2;
+            track product.id
+          ) {
+            <div class="product">
+              <div class="product-img" style="width: 36%">
+                <div class="image">
+                  <img [src]="product.imageUrl" alt="product image" />
+                </div>
+                <div class="details">
+                  <p>
+                    {{
+                      currentLanguage === "ar"
+                        ? product.arabicName
+                        : product.englishName
+                    }}
+                  </p>
+                  <span>{{ product.ownerName }}</span>
+                </div>
+              </div>
+              <div class="product-price" style="width: 25%">
+                <p>{{ product.category }}</p>
+              </div>
+              <div class="product-price" style="width: 12%">
+                @if (product.stock) {
+                  <p>{{ product.stock }}</p>
+                } @else {
+                  <p class="out-of-stock-label">
+                    {{ "OUT_OF_STOCK_LABEL" | translate }}
+                  </p>
+                }
+                <span>{{
+                  currentLanguage === "ar" ? "المخزون" : "Stock"
+                }}</span>
+              </div>
+              <div class="product-price" style="width: 12%">
+                <p>
+                  {{
+                    product.totalSales | currency: "USD" : "symbol" : "1.0-2"
+                  }}
+                </p>
+              </div>
+              <div class="product-price product-percentage" style="width: 15%">
+                <p>{{ product.percentageOfTotalSales }}</p>
+                <i class="ri-bar-chart-2-fill"></i>
+              </div>
+            </div>
+          }
+          <div class="pagination-container">
+            <p-paginator
+              (onPageChange)="onTopSellerChange($event)"
+              [first]="first2"
+              [rows]="rows2"
+              [totalRecords]="topSellers.length"
+              styleClass="best-products-paginator"
+              [showCurrentPageReport]="true"
+              [currentPageReportTemplate]="
+                currentLanguage === 'ar'
+                  ? 'عرض {first} إلى {last} من أصل {totalRecords} نتيجة'
+                  : 'Showing {last} of {totalRecords} Results'
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="store-visits-and-recent-orders">
+    <div class="store-visits-section">
+      <div class="section-header">
+        <p>{{ "STORE_VISITS_LABEL" | translate }}</p>
+        <div class="left-side2">
+          <span
+            class="reports-label"
+            (click)="toggleReportDropdown2()"
+            #ReportDropdown2
+            style="cursor: pointer"
+          >
+            {{ "REPORTS_LABEL" | translate }}
+            <i class="ri-arrow-down-s-line"></i>
+          </span>
+          <div class="sorting-data">
+            <div
+              class="date-filter-dropdown report-filter-dropdown"
+              [class.arabic-dir]="currentLanguage === 'ar'"
+              [class.active]="isReportDropdownOpen2()"
+            >
+              <ul>
+                @for (date of reportFilterOptions; track $index) {
+                  <li
+                    (click)="changeSelectedReportOption2(date)"
+                    [class.active]="
+                      selectedReportOption2.arabicName === date.arabicName ||
+                      selectedReportOption2.englisthName === date.englisthName
+                    "
+                  >
+                    <span>
+                      {{
+                        currentLanguage === "ar"
+                          ? date.arabicName
+                          : date.englisthName
+                      }}
+                    </span>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="dunat-chart-container">
+          <app-donut-chart
+            [currentLang]="currentLanguage"
+            [currentTheme]="currentTheme"
+            [chartData]="dunatChartData"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="recent-orders-section">
+      <!-- RECENT_ORDERS_LABEL -->
+      <div class="section-header" style="padding: 0.95rem 0">
+        <p>{{ "RECENT_ORDERS_LABEL" | translate }}</p>
+        <div class="left-side2">
+          <button class="generate-report-btn">
+            <i class="ri-file-list-3-line"></i>
+            <span>{{ "GENERATE_REPORT_LABEL" | translate }}</span>
+          </button>
         </div>
       </div>
     </div>
