@@ -484,17 +484,32 @@
           </thead>
           <tbody>
             @for (order of recentOrders; track order.orderId) {
-              <tr class="text-center">
-                <td>{{ order.orderId }}</td>
-                <td>{{ order.customerName }}</td>
-                <td>{{ order.productName }}</td>
+              <tr>
                 <td>
-                  {{ order.amount | currency: "USD" : "symbol" : "1.0-2" }}
+                  <span class="order-id">
+                    {{ order.orderId }}
+                  </span>
                 </td>
-                <td>{{ order.vendor }}</td>
+                <td>
+                  <div class="data">
+                    <img [src]="order.customerImg" [alt]="order.customerName" />
+                    <span>{{ order.customerName }}</span>
+                  </div>
+                </td>
+                <td>
+                  <span class="td-data">{{ order.productName }}</span>
+                </td>
+                <td>
+                  <span class="td-data order-amount">
+                    {{ order.amount | currency: "USD" : "symbol" : "1.0-2" }}
+                  </span>
+                </td>
+                <td>
+                  <span class="td-data">{{ order.vendor }}</span>
+                </td>
                 <td>
                   <span
-                    class="status"
+                    class="status td-data"
                     [class.paid]="order.status === 'Paid'"
                     [class.pending]="order.status === 'Pending'"
                     [class.unpaid]="order.status === 'Unpaid'"
@@ -502,7 +517,14 @@
                     {{ order.status }}
                   </span>
                 </td>
-                <td>{{ order.rating }} ({{ order.votes }})</td>
+                <td class="rating-votes-container">
+                  <div class="rating-and-votes">
+                    <span class="td-data">{{
+                      order.rating | number: "1.1-1"
+                    }}</span>
+                    <span class="votes-data">({{ order.votes }} votes)</span>
+                  </div>
+                </td>
               </tr>
             }
           </tbody>

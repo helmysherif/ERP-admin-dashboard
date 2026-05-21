@@ -338,7 +338,7 @@ export class DashboardService {
       amount: 109,
       vendor: 'zoetic fashion',
       status: 'Paid',
-      rating: 5,
+      rating: 5.0,
       votes: 61,
     },
     {
@@ -366,7 +366,7 @@ export class DashboardService {
     {
       orderId: '#VZ2108',
       customerName: 'prezy mark',
-      customerImg: 'images/avatar-4.jpg',
+      customerImg: 'images/avatar-4.png',
       productName: 'furniture',
       amount: 199,
       vendor: 'syntyce solutions',

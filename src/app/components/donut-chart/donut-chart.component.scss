@@ -5,11 +5,16 @@
   width: 100%;
   display: block;
 }
-#dunat-chart {
-  @media all and (max-width: 768px) {
-    width: 900px;
-    overflow-x: auto;
-    overflow-y: hidden;
+// #dunat-chart {
+//   @media all and (max-width: 768px) {
+//     width: 900px;
+//     overflow-x: auto;
+//     overflow-y: hidden;
+//   }
+// }
+::ng-deep .apexcharts-canvas {
+  @media all and (max-width: 1126px) {
+    height: 300px !important;
   }
 }
 ::ng-deep .apexcharts-legend-marker {

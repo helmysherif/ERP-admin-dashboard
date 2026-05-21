@@ -25,6 +25,7 @@ export class MainLayoutComponent {
   isSidebarOpen = false;
   visibleSidebar = false;
   private translationService = inject(TranslationService);
+  currentYear = new Date().getFullYear();
   ngOnInit() {
     // console.log(window.innerWidth);
     this.translationService.currentLanguage.subscribe((lang: 'ar' | 'en') => {
