@@ -35,10 +35,10 @@ export class SidebarComponent {
       },
       subLinks: [
         {
-          englishLabel: 'Projects',
-          arabicLabel: 'المشاريع',
+          englishLabel: 'Products',
+          arabicLabel: 'المنتجات',
           icon: 'ri-building-line',
-          route: '/projects',
+          route: '/products',
         },
         {
           englishLabel: 'Clients',

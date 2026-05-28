@@ -68,5 +68,7 @@
     "AMOUNT_LABEL": "المبلغ",
     "VENDOR_LABEL": "البائع",
     "STATUS_LABEL": "الحالة",
-    "RATED_LABEL": "التقييم"
+    "RATED_LABEL": "التقييم",
+    "PRODUCTS_LABEL" : "المنتجات",
+    "ECOMMERCE_LABEL" : "التجارة الإلكترونية"
 }

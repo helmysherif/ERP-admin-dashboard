@@ -1,0 +1,23 @@
+<section class="products">
+  <div class="products-header">
+    <p class="products-header-title">{{ "PRODUCTS_LABEL" | translate }}</p>
+    <div class="products-header-breadcrumbs">
+      <span class="breadcrumb-label" [routerLink]="'/dashboard'">{{
+        "ECOMMERCE_LABEL" | translate
+      }}</span>
+      <i
+        class="ri-arrow-right-s-line active-icon"
+        [ngClass]="{
+          'rotate-icon': currentLanguage === 'ar',
+        }"
+      ></i>
+      <span class="breadcrumb-label active">{{
+        "PRODUCTS_LABEL" | translate
+      }}</span>
+    </div>
+  </div>
+  <div class="products-body">
+    <div class="products-body-filters">filters</div>
+    <div class="products-body-table">table</div>
+  </div>
+</section>

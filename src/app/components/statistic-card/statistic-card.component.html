@@ -13,7 +13,12 @@
           <i class="pi pi-dollar"></i>
         </span>
       }
-      <span class="val">{{ statisticCardData().value | million }}</span>
+      <span
+        class="val"
+        [appCountUp]="statisticCardData().value"
+        [isCurrency]="true"
+        >0</span
+      >
     </p>
     <p class="statistic-card-link" [routerLink]="statisticCardData().linkUrl">
       {{

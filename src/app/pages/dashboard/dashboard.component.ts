@@ -22,13 +22,14 @@ import {
 } from '../../shared/interfaces/dashboard';
 import { StatisticCardComponent } from '../../components/statistic-card/statistic-card.component';
 import { DashboardService } from '../../shared/services/dashboard.service';
-import { MillionPipe } from '../../shared/pipes/million.pipe';
 import { ColumnLineMixChartComponent } from '../../components/column-line-mix-chart/column-line-mix-chart.component';
 import { EarthMapComponent } from '../../components/earth-map/earth-map.component';
 import { CommonModule } from '@angular/common';
 import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 import { PaginatorPipe } from '../../shared/pipes/paginator.pipe';
 import { DonutChartComponent } from '../../components/donut-chart/donut-chart.component';
+import { CountUpDirective } from '../../shared/directives/count-up.directive';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   imports: [
@@ -36,13 +37,14 @@ import { DonutChartComponent } from '../../components/donut-chart/donut-chart.co
     DatePickerModule,
     FormsModule,
     StatisticCardComponent,
-    MillionPipe,
     ColumnLineMixChartComponent,
     EarthMapComponent,
     PaginatorModule,
     PaginatorPipe,
     DonutChartComponent,
     CommonModule,
+    CountUpDirective,
+    RouterLink,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',

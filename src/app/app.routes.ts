@@ -21,6 +21,20 @@ export const routes: Routes = [
             (m) => m.DashboardComponent,
           ),
       },
+      {
+        path: 'products/:id',
+        loadComponent: () =>
+          import('./pages/product-details/product-details.component').then(
+            (m) => m.ProductDetailsComponent,
+          ),
+      },
+      {
+        path: 'products',
+        loadComponent: () =>
+          import('./pages/products/products.component').then(
+            (m) => m.ProductsComponent,
+          ),
+      },
     ],
     // canActivate: [authGuard],
   },

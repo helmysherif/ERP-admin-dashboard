@@ -73,6 +73,12 @@ body.light {
   --generate-report-btn-bg-color: #dff0fa;
   --table-thead-bg-color: #f3f6f9;
   --footer-bg-color: #ffffff;
+  --paid-order-bg-color: #daf4f0;
+  --pending-order-bg-color: #fef4e4;
+  --unpaid-order-bg-color: #fde8e4;
+  --products-header-bg-color: #ffffff;
+  --product-breadcrumbs-color: #212529;
+  --product-breadcrumbs-active-color: #878a99;
 }
 body.dark {
   --auth-bg-color: #1a1d21;
@@ -136,4 +142,10 @@ body.dark {
   --generate-report-btn-bg-color: rgba(41, 156, 219, 0.15);
   --table-thead-bg-color: #282b2e;
   --footer-bg-color: #212529;
+  --paid-order-bg-color: rgba(10, 179, 156, 0.15);
+  --pending-order-bg-color: rgba(247, 184, 75, 0.15);
+  --unpaid-order-bg-color: rgba(240, 101, 72, 0.15);
+  --products-header-bg-color: #212529;
+  --product-breadcrumbs-color: #ced4da;
+  --product-breadcrumbs-active-color: #878a99;
 }

@@ -57,21 +57,21 @@
             class="orders-count"
             [class.arabic-orders-count]="currentLanguage === 'ar'"
           >
-            <p>7585</p>
+            <p [appCountUp]="7585">0</p>
             <span>{{ "ORDERS_LABEL" | translate }}</span>
           </div>
           <div
             class="orders-count"
             [class.arabic-orders-count]="currentLanguage === 'ar'"
           >
-            <p>${{ 228931 | million }}</p>
+            <p [appCountUp]="228931" [isCurrency]="true">0</p>
             <span>{{ "EARNINGS_LABEL" | translate }}</span>
           </div>
           <div
             class="orders-count"
             [class.arabic-orders-count]="currentLanguage === 'ar'"
           >
-            <p>367</p>
+            <p [appCountUp]="367">0</p>
             <span>{{ "REFUNDS_LABEL" | translate }}</span>
           </div>
           <div
@@ -233,7 +233,7 @@
                   <img [src]="product.imageUrl" alt="product image" />
                 </div>
                 <div class="details">
-                  <p>
+                  <p [routerLink]="['/products', product.id]">
                     {{
                       currentLanguage === "ar"
                         ? product.arabicName

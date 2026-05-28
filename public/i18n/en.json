@@ -68,5 +68,7 @@
   "AMOUNT_LABEL": "Amount",
   "VENDOR_LABEL": "Vendor",
   "STATUS_LABEL": "Status",
-  "RATED_LABEL": "Rating"
+  "RATED_LABEL": "Rating",
+  "PRODUCTS_LABEL" : "Products",
+  "ECOMMERCE_LABEL" : "Ecommerce"
 }
