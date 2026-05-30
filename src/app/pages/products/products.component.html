@@ -17,7 +17,52 @@
     </div>
   </div>
   <div class="products-body">
-    <div class="products-body-filters">filters</div>
+    <div class="products-body-filters">
+      <div class="filters-header">
+        <div class="titles">
+          <p>filters</p>
+          <span (click)="clearAllFilters()">clear all</span>
+        </div>
+        <div class="filters-categories">
+          @for (prod of clothesCategories; track prod.id) {
+            <p-chip
+              class="filter-chip"
+              [label]="prod.name"
+              [removable]="true"
+              (onRemove)="removeCategory(prod.id)"
+              [removable]="!$last || clothesCategories.length > 1"
+              [class.not-removable]="$last && clothesCategories.length <= 1"
+            />
+          }
+        </div>
+      </div>
+      <div class="filters-products">
+        <p class="filters-products-title">products</p>
+        <div class="product-types">
+          @for (type of productsTypes; track type.id) {
+            <div
+              class="product-type"
+              [class.active]="activeProfuctTypeId === type.id"
+              (click)="toggleProductType(type.id)"
+            >
+              <p>{{ type.name }}</p>
+              <span>{{ type.count }}</span>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="price-filters">
+        <p class="price-filters-title">price</p>
+        <div class="prices-slider">
+          <p-slider
+            class="prices-slider2"
+            [(ngModel)]="rangeValues"
+            [range]="true"
+            class="w-56"
+          />
+        </div>
+      </div>
+    </div>
     <div class="products-body-table">table</div>
   </div>
 </section>

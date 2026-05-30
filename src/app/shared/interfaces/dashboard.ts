@@ -21,10 +21,6 @@ export interface RevenueData {
   value2: number;
   value3: number;
 }
-export interface ChartLegend {
-  englishName: string;
-  arabicName: string;
-}
 export interface FilterOption {
   englisthName: string;
   arabicName: string;
@@ -40,6 +36,17 @@ export interface BestSellerProduct {
   amount: number;
   addedDate: Date;
 }
+export type ChartLegend = Pick<BestSellerProduct, 'englishName' | 'arabicName'>;
+// export type ChartLegend = Omit<
+//   BestSellerProduct,
+//   | 'id'
+//   | 'imageUrl'
+//   | 'price'
+//   | 'ordersNumber'
+//   | 'numberInStock'
+//   | 'amount'
+//   | 'addedDate'
+// >;
 export interface TopSeller {
   id: number;
   englishName: string;
@@ -68,3 +75,5 @@ export interface Order {
   rating: number;
   votes: number;
 }
+// omit means to exclude certain properties from the type, in this case we are excluding all properties of BestSellerProduct except englishName and arabicName to create a new type called ChartLegend.
+// pick means to create a new type by selecting specific properties from an existing type, in this case we are selecting only englishName and arabicName from BestSellerProduct to create a new type called ChartLegend.
