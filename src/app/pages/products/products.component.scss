@@ -157,7 +157,7 @@
           font-weight: 600;
         }
         .prices-slider {
-          padding: 1.2rem 1.5rem 0;
+          padding: 1.2rem 1rem 0;
         }
       }
     }
@@ -187,18 +187,10 @@
     padding: 1px 7px;
   }
 }
-::ng-deep .prices-slider {
-  .p-slider-handle {
-    width: 10px;
-    height: 10px;
-    background-color: #0ab39c;
-    top: 6px;
-    inset-inline-start: 1%;
-    &:before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      background-color: #0ab39c;
-    }
+::ng-deep .custom-filters-accordion {
+  .p-accordionheader,
+  .p-accordioncontent-content {
+    color: #000;
+    background: #ffffff;
   }
 }

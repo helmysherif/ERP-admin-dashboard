@@ -83,6 +83,10 @@ body.light {
   --product-filters-header-border-color: #e9ebec;
   --clear-all-filters-color: rgb(64, 81, 137);
   --product-type-count-bg-color: rgb(243, 246, 249);
+  --slider-bg-color: #f3f6f9;
+  --price-input-bg-color: #fff;
+  --price-input-text-color: #212529;
+  --price-input-border-color: #ced4da;
 }
 body.dark {
   --auth-bg-color: #1a1d21;
@@ -156,4 +160,8 @@ body.dark {
   --product-filters-header-border-color: #32383e;
   --clear-all-filters-color: #878a99;
   --product-type-count-bg-color: rgb(40, 43, 46);
+  --slider-bg-color: #282b2e;
+  --price-input-bg-color: #262a2f;
+  --price-input-text-color: #ced4da;
+  --price-input-border-color: #2a2f34;
 }

@@ -1,0 +1,46 @@
+<div class="custom-slider-container">
+  <div #sliderTrack class="slider-track" (mousedown)="onTrackClick($event)">
+    <div
+      class="selected-range"
+      [style.left.%]="minPercent()"
+      [style.width.%]="maxPercent() - minPercent()"
+    ></div>
+
+    <div
+      class="slider-handle"
+      [style.left.%]="minPercent()"
+      (mousedown)="startDrag($event, 'min')"
+    ></div>
+
+    <div
+      class="slider-handle"
+      [style.left.%]="maxPercent()"
+      (mousedown)="startDrag($event, 'max')"
+    ></div>
+  </div>
+  <div class="slider-labels">
+    <!-- <span>Min: {{ minValue() }}</span>
+    <span>Max: {{ maxValue() }}</span> -->
+    <input
+      #minInput
+      type="text"
+      [(ngModel)]="minValue"
+      (ngModelChange)="onMinInputChange($event, minInput)"
+      (keydown)="preventNonNumericValues($event)"
+      [min]="sliderMin()"
+      [max]="maxValue()"
+      name="minValue"
+    />
+    <span>to</span>
+    <input
+      #maxInput
+      type="text"
+      [(ngModel)]="maxValue"
+      (ngModelChange)="onMaxInputChange($event, maxInput)"
+      (keydown)="preventNonNumericValues($event)"
+      [min]="minValue()"
+      [max]="sliderMax()"
+      name="maxValue"
+    />
+  </div>
+</div>
